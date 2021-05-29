@@ -1,0 +1,1860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ao-oss-website - The oss.aoapps.com website.
+Copyright (C) 2021  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
+
+This file is part of ao-oss-website.
+
+ao-oss-website is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ao-oss-website is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<!-- TODO: aorepo parent like pragmatickm-website and semanticcms-website?  Or those like this? -->
+		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.16.0-SNAPSHOT</version>
+		<relativePath>../parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>com.aoapps</groupId><artifactId>ao-oss-website</artifactId><version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>oss.aoapps.com</name>
+	<url>https://oss.aoapps.com/</url>
+	<description>The oss.aoapps.com website.</description>
+	<inceptionYear>2021</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>GNU General Lesser Public License (LGPL) version 3.0</name>
+			<url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>AO Industries, Inc.</name>
+		<url>https://aoindustries.com/</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>AO Industries, Inc.</name>
+			<email>support@aoindustries.com</email>
+			<url>https://aoindustries.com/</url>
+			<organization>AO Industries, Inc.</organization>
+			<organizationUrl>https://aoindustries.com/</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/aoindustries/ao-oss-website.git</connection>
+		<developerConnection>scm:git:git@github.com:aoindustries/ao-oss-website.git</developerConnection>
+		<url>https://github.com/aoindustries/ao-oss-website</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/aoindustries/ao-oss-website/issues</url>
+	</issueManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<ignoreNonCompile>true</ignoreNonCompile>
+					<usedDependencies>
+						<!-- Non-classpath Direct -->
+						<dependency>com.semanticcms:semanticcms-core-all</dependency>
+						<dependency>com.semanticcms:semanticcms-news-all</dependency>
+						<dependency>com.semanticcms:semanticcms-section-all</dependency>
+					</usedDependencies>
+					<ignoredUnusedDeclaredDependencies>
+						<!-- Books -->
+						<dependency>com.aoapps:*-book:jar</dependency>
+					</ignoredUnusedDeclaredDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!--
+					Workaround "versions:display-plugin-updates" failing when "release" profile active.
+					See https://github.com/mojohaus/versions-maven-plugin/issues/354
+
+					A recent optimization moved all configuration of the maven-war-plugin to
+					profileManagement, to avoid the overhead of instantiating this plugin on
+					all projects.  This, however, has exposed us to this bug.
+				-->
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
+			</plugin>
+			<!-- Never attach sources for snapshot, see https://stackoverflow.com/a/39139979 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-source-plugin</artifactId>
+				<configuration><skipSource>${build.isSnapshot}</skipSource></configuration>
+			</plugin>
+			<!-- Never sign snapshot, see https://stackoverflow.com/a/39139979 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-gpg-plugin</artifactId>
+				<configuration><skip>${build.isSnapshot}</skip></configuration>
+			</plugin>
+			<!-- Never install snapshot, see https://stackoverflow.com/a/39139979 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-install-plugin</artifactId>
+				<configuration><skip>${build.isSnapshot}</skip></configuration>
+			</plugin>
+			<!-- Never deploy snapshot, see https://stackoverflow.com/a/39139979 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-deploy-plugin</artifactId>
+				<configuration><skip>${build.isSnapshot}</skip></configuration>
+			</plugin>
+			<!-- Never stage snapshot, see https://stackoverflow.com/a/39139979 -->
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId><artifactId>nexus-staging-maven-plugin</artifactId>
+				<configuration>
+					<skipNexusStagingDeployMojo>${build.isSnapshot}</skipNexusStagingDeployMojo>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<!-- Features only enabled during development time -->
+			<id>development</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-all</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+					<type>pom</type>
+				</dependency>
+				<dependency>
+					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-all</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-tree</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-what-links-here</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<overlays>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>appcluster/core/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>appcluster/csync2/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>appcluster/dnsonly/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>appcluster/imap/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>appcluster/jdbc/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>badges/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>collections/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-collections-transformers</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>collections/transformers/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>concurrent/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>cron/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-dao-api</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>dao/api/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-dao-base</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>dao/base/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-dao</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-dao-dbc</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>dao/dbc/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-dbc</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>dbc/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>encoding/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>encoding/servlet/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>encoding/taglib/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>fluent-html/any/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>fluent-html/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>fluent-html/servlet/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>fluent-html/util/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>hodgepodge/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>io-buffer/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>io-filesystems/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>io-filesystems/posix/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-io-posix</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>io-posix/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>lang/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-api</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/api/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-base</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/base/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-bom</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-http</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/http/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/http/client/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/http/servlet/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/tcp/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/tcp/client/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>messaging/tcp/server/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>net-partial-url/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>net-partial-url/servlet/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>net-path-space/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>net-types/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-all</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-payments-api</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>payments/api/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>payments/authorizeNet/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-bom</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>payments/payflowPro/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-payments-stripe</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>payments/stripe/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-payments-test</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>payments/test/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>payments/usaepay/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>persistence/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-security</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>security/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-filter/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/api/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId> -->
+								<!-- TODO:
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/filter/apidocs</targetPath>
+								</overlay>
+								-->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/path-space/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/rules/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/virtual-hosts/apidocs</targetPath>
+								</overlay>
+								<!-- TODO:
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/virtual-hosts/path-space/apidocs</targetPath>
+								</overlay>
+								-->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-firewall/webjars/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-last-modified/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-subrequest/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>servlet-util/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-sql</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>sql/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-sql-failfast</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>sql/failfast/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-sql-pool</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>sql/pool/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-sql-tracker</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>sql/tracker/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>sql/wrapper/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>style/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>taglib/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>tempfiles/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>tempfiles/servlet/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>tld-parser/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>tlds/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-web-framework</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>web-framework/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-web-resources</artifactId> -->
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>web-resources/optimizer/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>web-resources/registry/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>web-resources/renderer/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>web-resources/servlet/apidocs</targetPath>
+								</overlay>
+								<overlay>
+									<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier>
+									<type>jar</type>
+									<targetPath>web-resources/taglib/apidocs</targetPath>
+								</overlay>
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId> -->
+							</overlays>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+			<dependencies>
+				<!-- Dependencies for javadocs -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><version>1.6.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>1.2.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-collections-transformers</artifactId><version>1.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>3.1.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><version>2.1.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-dao</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-dao-api</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-dao-base</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-dao-dbc</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-dbc</artifactId><version>2.1.2-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>4.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>3.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.4.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><version>0.4.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.4.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.4.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>4.9.2-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>3.3.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems</artifactId><version>0.1.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><version>0.1.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-io-posix</artifactId><version>3.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>4.17.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-api</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-base</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-bom</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server</artifactId><version>2.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>1.3.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-all</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-api</artifactId><version>1.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet</artifactId><version>1.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-bom</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro</artifactId><version>1.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-stripe</artifactId><version>1.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-test</artifactId><version>1.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay</artifactId><version>1.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-security</artifactId><version>2.3.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>2.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId> -->
+				<!-- TODO: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- TODO: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>1.3.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>3.6.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-sql</artifactId><version>1.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-sql-failfast</artifactId><version>1.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-sql-pool</artifactId><version>1.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-sql-tracker</artifactId><version>1.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper</artifactId><version>1.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>1.1.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>7.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>2.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>1.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><version>1.3.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>1.2.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-framework</artifactId><version>3.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-web-resources</artifactId> -->
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId> -->
+			</dependencies>
+		</profile>
+		<!--
+			Required for bug "requireActiveProfile ignores inherited profiles in submoduless":
+			https://issues.apache.org/jira/browse/MENFORCER-226
+		-->
+		<profile>
+			<id>POST-SNAPSHOT</id>
+			<properties>
+				<POST-SNAPSHOT>-POST-SNAPSHOT</POST-SNAPSHOT>
+			</properties>
+		</profile>
+		<profile>
+			<id>publish</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>publish-enforce-profiles</id><goals><goal>enforce</goal></goals>
+								<configuration>
+									<rules>
+										<requireActiveProfile>
+											<message>"publish" requires "release" profile</message>
+											<profiles>release</profiles>
+										</requireActiveProfile>
+										<requireActiveProfile>
+											<message>"publish" requires "POST-SNAPSHOT" profile</message>
+											<profiles>POST-SNAPSHOT</profiles>
+										</requireActiveProfile>
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>publish</id><phase>deploy</phase><goals><goal>deploy-only</goal></goals>
+								<configuration>
+									<charset>UTF-8</charset>
+									<server>tomcat7-maven-plugin-oss.aoapps.com</server>
+									<path>/</path>
+									<update>true</update>
+									<url>${tomcat7-maven-plugin-oss.aoapps.com}</url>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>warmup-get-url</id><phase>deploy</phase><goals><goal>run</goal></goals>
+								<configuration>
+									<target>
+										<sleep seconds="10" />
+										<mkdir dir="${project.build.directory}/warmup-get-url" />
+										<get src="${publish-oss.aoapps.com-warmup-get-url}" dest="${project.build.directory}/warmup-get-url/response" maxtime="120" httpusecaches="false" />
+										<get src="${publish-oss.aoapps.com-warmup-get-url.2}" dest="${project.build.directory}/warmup-get-url/response.2" maxtime="120" httpusecaches="false" />
+										<get src="${publish-oss.aoapps.com-warmup-get-url.3}" dest="${project.build.directory}/warmup-get-url/response.3" maxtime="120" httpusecaches="false" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Direct -->
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId><version>1.6.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-collections-book</artifactId><version>1.2.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId><version>1.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId><version>3.1.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId><version>2.1.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-dao-api-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-dao-base-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-dao-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-dao-dbc-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-dbc-book</artifactId><version>2.1.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId><version>4.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId><version>3.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId><version>2.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId><version>0.4.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book</artifactId><version>0.4.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId><version>0.4.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId><version>0.4.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId><version>4.9.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer-book</artifactId><version>3.3.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-book</artifactId><version>0.1.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId><version>0.1.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-posix-book</artifactId><version>3.0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book</artifactId><version>1.0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>4.17.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-base-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-js-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId><version>1.3.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId><version>1.16.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-all-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-api-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-bom-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-stripe-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-test-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId><version>2.3.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId><version>2.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId><version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId><version>1.3.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId><version>3.6.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-sql-book</artifactId><version>1.0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book</artifactId><version>1.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book</artifactId><version>1.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-sql-tracker-book</artifactId><version>1.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper-book</artifactId><version>1.0.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-style-book</artifactId><version>1.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-taglib-book</artifactId><version>7.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-book</artifactId><version>2.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet-book</artifactId><version>1.2.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tld-parser-book</artifactId><version>1.3.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tlds-book</artifactId><version>1.2.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId><version>3.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId><version>0.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId><version>0.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId><version>0.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId><version>0.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId><version>0.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId><version>0.4.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><version>7.0.0-SNAPSHOT</version>
+			</dependency>
+			<!-- Transitive -->
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>1.2.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>3.1.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>4.0.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>3.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><version>0.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>4.9.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>3.3.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>4.17.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>1.3.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>1.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>1.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>3.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>1.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>2.0.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>1.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><version>1.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>1.2.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.12.0</version>
+			</dependency>
+			<dependency>
+				<groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10.10</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.14.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.18.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.15.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-model</artifactId><version>1.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-servlet</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-taglib</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-model</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-servlet</artifactId><version>1.11.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
+			<!-- Runtime Direct -->
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><version>1.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>2.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId><version>1.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.12.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<!-- Runtime Transitive -->
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>2.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>6.7.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.npm</groupId><artifactId>dagre-d3</artifactId><version>0.6.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.npm</groupId><artifactId>graphlib</artifactId><version>2.1.8</version>
+			</dependency>
+			<dependency>
+				<groupId>joda-time</groupId><artifactId>joda-time-jsptags</artifactId><version>1.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.6.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-breadcrumblist-json-ld</artifactId><version>1.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-canonical</artifactId><version>1.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-sitemap</artifactId><version>1.14.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-style</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-view-content</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId><version>1.10.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.10.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-rss</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-style</artifactId><version>1.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-view</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-style</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
+			<!-- Non-classpath Direct -->
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<type>pom</type>
+			</dependency>
+			<!-- BOM -->
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Direct -->
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-collections-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-dao-api-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-dao-base-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-dao-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-dao-dbc-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-dbc-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-io-buffer-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-io-posix-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-base-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-js-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-all-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-api-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-bom-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-stripe-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-test-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-sql-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-sql-tracker-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-style-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-taglib-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-tld-parser-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-tlds-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
+		</dependency>
+		<!-- Runtime Direct -->
+		<dependency>
+			<!-- Required for UTF-8 static resources -->
+			<groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Non-classpath Direct -->
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+</project>
