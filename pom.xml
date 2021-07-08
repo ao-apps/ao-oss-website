@@ -26,7 +26,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 
 	<parent>
 		<!-- TODO: aorepo parent like pragmatickm-website and semanticcms-website?  Or those like this? -->
-		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.16.1-POST-SNAPSHOT</version>
+		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.17.0-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
@@ -1221,7 +1221,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId><version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId><version>1.16.1-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId><version>1.17.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-payments-all-book</artifactId><version>2.0.0-SNAPSHOT</version>
