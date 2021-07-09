@@ -130,11 +130,6 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-source-plugin</artifactId>
 				<configuration><skipSource>${build.isSnapshot}</skipSource></configuration>
 			</plugin>
-			<!-- Never sign snapshot, see https://stackoverflow.com/a/39139979 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-gpg-plugin</artifactId>
-				<configuration><skip>${build.isSnapshot}</skip></configuration>
-			</plugin>
 			<!-- Never install snapshot, see https://stackoverflow.com/a/39139979 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-install-plugin</artifactId>
@@ -606,6 +601,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 									<targetPath>web-resources/taglib/apidocs</targetPath>
 								</overlay>
 								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId> -->
+								<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId> -->
 							</overlays>
 						</configuration>
 					</plugin>
@@ -1063,6 +1059,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId> -->
+				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId> -->
 			</dependencies>
 		</profile>
 	</profiles>
@@ -1351,6 +1348,9 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><version>7.0.0-POST-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -1859,6 +1859,9 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 		</dependency>
 		<dependency>
 			<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>

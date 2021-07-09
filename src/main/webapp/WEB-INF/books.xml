@@ -216,6 +216,9 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 	<book name="/persistence" cvsworkDirectory="~/maven2/ao/oss/persistence/book/src/main/resources-filtered/META-INF/resources/persistence">
 		<parent book="/" page="/java-libraries.jspx" />
 	</book>
+	<book name="/pgp-keys-map" cvsworkDirectory="~/maven2/ao/oss/pgp-keys-map/book/src/main/resources-filtered/META-INF/resources/pgp-keys-map">
+		<parent book="/" page="/maven.jspx" />
+	</book>
 	<book name="/security" cvsworkDirectory="~/maven2/ao/oss/security/book/src/main/resources-filtered/META-INF/resources/security">
 		<parent book="/" page="/java-libraries.jspx" />
 	</book>
