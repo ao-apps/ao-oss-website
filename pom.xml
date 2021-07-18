@@ -26,7 +26,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 
 	<parent>
 		<!-- TODO: aorepo parent like pragmatickm-website and semanticcms-website?  Or those like this? -->
-		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.17.0-SNAPSHOT</version>
+		<groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.17.0-POST-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 
