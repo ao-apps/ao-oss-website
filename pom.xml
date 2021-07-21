@@ -894,7 +894,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-bom</artifactId> -->
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments</artifactId> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro</artifactId><version>2.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1244,7 +1244,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-payments-book</artifactId><version>2.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro-book</artifactId><version>2.0.0-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-payments-stripe-book</artifactId><version>2.0.0-SNAPSHOT</version>
