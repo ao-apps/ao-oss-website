@@ -936,7 +936,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId> -->
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><version>0.1.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1274,7 +1274,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId><version>1.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId><version>1.0.0-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId><version>1.0.0-SNAPSHOT</version>
