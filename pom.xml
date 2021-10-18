@@ -827,7 +827,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-bom</artifactId> -->
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging</artifactId> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http</artifactId><version>3.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http</artifactId><version>3.0.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1181,13 +1181,13 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-base-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId><version>3.0.1-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>3.0.1-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId><version>3.0.1-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
