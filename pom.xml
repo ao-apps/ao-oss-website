@@ -1052,7 +1052,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1337,7 +1337,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId><version>3.0.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId><version>0.5.0-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId><version>0.4.0-POST-SNAPSHOT</version>
@@ -1346,7 +1346,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId><version>0.4.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId><version>0.5.0-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
@@ -1515,7 +1515,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.0.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
