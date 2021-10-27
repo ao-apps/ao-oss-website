@@ -93,6 +93,9 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 		<parent book="/encoding" page="/index.jspx" shortTitle="Taglib" />
 		<parent book="/" page="/web-development.jspx" />
 	</book>
+	<book name="/error-pages" cvsworkDirectory="~/maven2/ao/oss/error-pages/book/src/main/resources-filtered/META-INF/resources/error-pages">
+		<parent book="/" page="/web-development.jspx" />
+	</book>
 	<book name="/fluent-html" cvsworkDirectory="~/maven2/ao/oss/fluent-html/book/src/main/resources-filtered/META-INF/resources/fluent-html">
 		<parent book="/" page="/web-development.jspx" />
 	</book>

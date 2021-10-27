@@ -43,6 +43,7 @@ module com.aoapps.oss.website {
 	requires com.aoapps.encoding.book; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId>
 	requires com.aoapps.encoding.servlet.book; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId>
 	requires com.aoapps.encoding.taglib.book; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId>
+	requires com.aoapps.error.pages.book; // <groupId>com.aoapps</groupId><artifactId>ao-error-pages-book</artifactId>
 	requires com.aoapps.html.any.book; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId>
 	requires com.aoapps.html.book; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book</artifactId>
 	requires com.aoapps.html.servlet.book; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId>
