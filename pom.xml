@@ -684,7 +684,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId> -->
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core</artifactId><version>2.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core</artifactId><version>2.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -724,12 +724,12 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><version>3.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><version>3.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -791,7 +791,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.0.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -806,7 +806,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><version>0.2.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><version>0.2.1-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -818,7 +818,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId> -->
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources</artifactId> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.1.2-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.1.3-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -846,7 +846,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				</dependency>
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js</artifactId> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><version>3.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><version>3.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -922,7 +922,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><version>2.0.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><version>2.0.2-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -999,7 +999,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-sql-pool</artifactId><version>2.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-sql-pool</artifactId><version>2.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1084,16 +1084,16 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 		<dependencies>
 			<!-- Direct -->
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId><version>2.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId><version>2.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId><version>2.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-core-book</artifactId><version>2.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
@@ -1117,10 +1117,10 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId><version>4.0.1-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId><version>4.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId><version>3.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-dao-api-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
@@ -1162,7 +1162,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId><version>5.0.1-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId><version>5.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer-book</artifactId><version>4.0.0-POST-SNAPSHOT</version>
@@ -1171,7 +1171,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-book</artifactId><version>0.2.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId><version>0.2.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId><version>0.2.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-io-posix-book</artifactId><version>4.0.0-POST-SNAPSHOT</version>
@@ -1183,7 +1183,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book</artifactId><version>1.0.2-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>5.1.2-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>5.1.3-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
@@ -1192,10 +1192,10 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-base-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId><version>3.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>3.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
@@ -1207,7 +1207,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-js-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId><version>3.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
@@ -1267,7 +1267,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId><version>2.0.1-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId><version>2.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
@@ -1318,7 +1318,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book</artifactId><version>2.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-sql-tracker-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
@@ -1388,7 +1388,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.1${POST-SNAPSHOT}</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>6.0.0${POST-SNAPSHOT}</version>
@@ -1409,13 +1409,13 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.5.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.0.1${POST-SNAPSHOT}</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.0.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.1.2${POST-SNAPSHOT}</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.1.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
@@ -1478,7 +1478,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.14.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.18.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.18.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.15.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -1559,7 +1559,7 @@ along with ao-oss-website.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-canonical</artifactId><version>1.3.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-sitemap</artifactId><version>1.14.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-sitemap</artifactId><version>1.14.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-style</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
