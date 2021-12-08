@@ -42,6 +42,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<!-- Require secure session cookies in production -->
 		<session.cookie.secure>true</session.cookie.secure>
+		<!-- Default publish settings -->
+		<publish-oss.aoapps.com-warmup-get-url>https://oss.aoapps.com/</publish-oss.aoapps.com-warmup-get-url>
+		<publish-oss.aoapps.com-warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish-oss.aoapps.com-warmup-get-url.2>
+		<publish-oss.aoapps.com-warmup-get-url.3>https://oss.aoapps.com/?view=news</publish-oss.aoapps.com-warmup-get-url.3>
 	</properties>
 
 	<name>oss.aoapps.com</name>
