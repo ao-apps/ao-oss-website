@@ -703,7 +703,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><version>3.0.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><version>3.0.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1094,7 +1094,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId><version>4.0.2-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId><version>3.0.1-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-dao-api-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
