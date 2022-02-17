@@ -1169,7 +1169,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId><version>3.0.2-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>3.0.2-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId><version>3.0.2-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
