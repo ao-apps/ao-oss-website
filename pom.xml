@@ -780,7 +780,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><version>0.2.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><version>0.2.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1145,7 +1145,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-book</artifactId><version>0.2.0-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId><version>0.2.1-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId><version>0.2.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-io-posix-book</artifactId><version>4.0.0-POST-SNAPSHOT</version>
