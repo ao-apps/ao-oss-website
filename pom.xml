@@ -734,7 +734,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.1.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -792,7 +792,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><classifier>javadoc</classifier> -->
 				<!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources</artifactId><classifier>javadoc</classifier> -->
 				<dependency>
-					<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.1.3-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -1115,7 +1115,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId><version>6.1.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId><version>4.1.0-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId><version>4.2.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId><version>3.1.0-SNAPSHOT</version>
@@ -1157,7 +1157,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book</artifactId><version>1.0.2-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>5.1.3-POST-SNAPSHOT</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>5.2.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
@@ -1349,10 +1349,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- Transitive -->
 			<dependency>
@@ -1368,7 +1368,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>6.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.1.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>3.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -1389,7 +1389,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.1.3${POST-SNAPSHOT}</version>
+				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
@@ -1464,7 +1464,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-servlet</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-taglib</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-taglib</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-model</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
@@ -1473,7 +1473,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-servlet</artifactId><version>1.11.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId><version>1.9.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId><version>1.9.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>1.7.2${POST-SNAPSHOT}</version>
@@ -1487,7 +1487,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.2${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId><version>1.3.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId><version>1.3.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.12.1${POST-SNAPSHOT}</version>
@@ -1527,7 +1527,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-breadcrumblist-json-ld</artifactId><version>1.4.0${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-breadcrumblist-json-ld</artifactId><version>1.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-canonical</artifactId><version>1.3.0${POST-SNAPSHOT}</version>
@@ -1554,7 +1554,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.10.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-rss</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-rss</artifactId><version>1.6.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-style</artifactId><version>1.4.1${POST-SNAPSHOT}</version>
