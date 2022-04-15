@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ao-oss-website - The oss.aoapps.com website.
-Copyright (C) 2021  AO Industries, Inc.
+Copyright (C) 2021, 2022  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -54,6 +54,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 	</book>
 	<book name="/badges" cvsworkDirectory="~/maven2/ao/oss/badges-1.x/book/src/main/resources-filtered/META-INF/resources/badges">
 		<parent book="/" page="/web-development.jspx" />
+	</book>
+	<book name="/checkstyle-config" cvsworkDirectory="~/maven2/ao/oss/checkstyle-config/book/src/main/resources-filtered/META-INF/resources/checkstyle-config">
+		<parent book="/" page="/maven.jspx" />
 	</book>
 	<book name="/collections" cvsworkDirectory="~/maven2/ao/oss/collections/book/src/main/resources-filtered/META-INF/resources/collections">
 		<parent book="/" page="/java-libraries.jspx" />

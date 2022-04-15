@@ -45,6 +45,7 @@ def upstreamProjects = [
 	'appcluster/imap', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap</artifactId><classifier>javadoc</classifier>
 	'appcluster/jdbc', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc</artifactId><classifier>javadoc</classifier>
 	'badges-1.x', // <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><classifier>javadoc</classifier>
+	// No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config</artifactId><classifier>javadoc</classifier>
 	'collections', // <groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><classifier>javadoc</classifier>
 	'collections-transformers', // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers</artifactId><classifier>javadoc</classifier>
 	'concurrent', // <groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><classifier>javadoc</classifier>
@@ -143,6 +144,7 @@ def upstreamProjects = [
 	'appcluster/imap-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book</artifactId>
 	'appcluster/jdbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book</artifactId>
 	'badges-1.x-book', // <groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
+	'checkstyle-config-book', // <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config-book</artifactId>
 	'collections-book', // <groupId>com.aoapps</groupId><artifactId>ao-collections-book</artifactId>
 	'collections-transformers-book', // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId>
 	'concurrent-book', // <groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId>
