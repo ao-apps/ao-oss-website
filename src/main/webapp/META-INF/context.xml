@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ao-oss-website - The oss.aoapps.com website.
-Copyright (C) 2021  AO Industries, Inc.
+Copyright (C) 2021, 2022  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -23,7 +23,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 <!--
-	This file only exists so NetBeans knows the path to deploy the application.
-	Tomcat uses the filtered version in src/main/webapp-filtered/META-INF/contex.xml.
+  This file only exists so NetBeans knows the path to deploy the application.
+  Tomcat uses the filtered version in src/main/webapp-filtered/META-INF/contex.xml.
 -->
 <Context path="/ao-oss-website"/>
