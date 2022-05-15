@@ -726,7 +726,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-dbc</artifactId><version>3.1.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-dbc</artifactId><version>3.1.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1114,7 +1114,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-dao-dbc-book</artifactId><version>3.0.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-dbc-book</artifactId><version>3.1.1-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-dbc-book</artifactId><version>3.1.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId><version>7.0.0-POST-SNAPSHOT</version>
