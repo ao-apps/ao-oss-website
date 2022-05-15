@@ -762,7 +762,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1138,7 +1138,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId><version>0.7.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId><version>0.7.0-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId><version>0.7.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId><version>5.1.0-POST-SNAPSHOT</version>
@@ -1499,7 +1499,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       </dependency>
       <!-- Runtime Transitive -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.1.0${POST-SNAPSHOT}</version>
