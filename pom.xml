@@ -1351,7 +1351,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.2.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.3${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
