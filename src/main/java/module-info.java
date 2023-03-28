@@ -1,6 +1,6 @@
 /*
  * ao-oss-website - The oss.aoapps.com website.
- * Copyright (C) 2021, 2022  AO Industries, Inc.
+ * Copyright (C) 2021, 2022, 2023  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -31,6 +31,10 @@ module com.aoapps.oss.website {
   requires com.aoapps.appcluster.imap.book; // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book</artifactId>
   requires com.aoapps.appcluster.jdbc.book; // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book</artifactId>
   requires com.aoapps.badges.book; // <groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
+  requires com.aoapps.cdn.book; // <groupId>com.aoapps</groupId><artifactId>ao-cdn-book</artifactId>
+  requires com.aoapps.cdn.data.book; // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data-book</artifactId>
+  requires com.aoapps.cdn.servlet.book; // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet-book</artifactId>
+  requires com.aoapps.cdn.webapp.book; // <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp-book</artifactId>
   requires com.aoapps.checkstyle.config.book; // <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config-book</artifactId>
   requires com.aoapps.collections.book; // <groupId>com.aoapps</groupId><artifactId>ao-collections-book</artifactId>
   requires com.aoapps.collections.transformers.book; // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId>

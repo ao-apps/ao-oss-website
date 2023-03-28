@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ao-oss-website - The oss.aoapps.com website.
-Copyright (C) 2021, 2022  AO Industries, Inc.
+Copyright (C) 2021, 2022, 2023  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -54,6 +54,18 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   </book>
   <book name="/badges" cvsworkDirectory="~/maven2/ao/oss/badges-1.x/book/src/main/resources-filtered/META-INF/resources/badges">
     <parent book="/" page="/web-development.jspx" />
+  </book>
+  <book name="/cdn" cvsworkDirectory="~/maven2/ao/oss/cdn/book/src/main/resources-filtered/META-INF/resources/cdn">
+    <parent book="/" page="/web-development.jspx" />
+  </book>
+  <book name="/cdn/data" cvsworkDirectory="~/maven2/ao/oss/cdn/data/book/src/main/resources-filtered/META-INF/resources/cdn/data">
+    <parent book="/cdn" page="/index.jspx" shortTitle="Data" />
+  </book>
+  <book name="/cdn/servlet" cvsworkDirectory="~/maven2/ao/oss/cdn/servlet/book/src/main/resources-filtered/META-INF/resources/cdn/servlet">
+    <parent book="/cdn" page="/index.jspx" shortTitle="Servlet" />
+  </book>
+  <book name="/cdn/webapp" cvsworkDirectory="~/maven2/ao/oss/cdn/webapp/book/src/main/resources-filtered/META-INF/resources/cdn/webapp">
+    <parent book="/cdn" page="/index.jspx" shortTitle="Webapp" />
   </book>
   <book name="/checkstyle-config" cvsworkDirectory="~/maven2/ao/oss/checkstyle-config/book/src/main/resources-filtered/META-INF/resources/checkstyle-config">
     <parent book="/" page="/maven.jspx" />
