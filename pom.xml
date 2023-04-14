@@ -1425,7 +1425,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><version>7.0.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.8.0-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.8.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.3${POST-SNAPSHOT}</version>
