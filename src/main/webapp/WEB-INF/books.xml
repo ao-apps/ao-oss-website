@@ -28,6 +28,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   rootBook="/"
 >
   <book name="/" cvsworkDirectory="~/maven2/ao/oss/book/src/main/resources-filtered/META-INF/resources" />
+  <book name="/ant-tasks" cvsworkDirectory="~/maven2/ao/oss/ant-tasks/book/src/main/resources-filtered/META-INF/resources/ant-tasks">
+    <parent book="/" page="/maven.jspx" />
+  </book>
   <book name="/appcluster" cvsworkDirectory="~/maven2/ao/oss/appcluster/book/src/main/resources-filtered/META-INF/resources/appcluster">
     <parent book="/" page="/clustering.jspx" />
   </book>

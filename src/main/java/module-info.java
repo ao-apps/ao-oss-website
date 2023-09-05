@@ -22,6 +22,7 @@
  */
 module com.aoapps.oss.website {
   // Direct
+  requires com.aoapps.ant.tasks.book; // <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks-book</artifactId>
   requires com.aoapps.appcluster.all.book; // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId>
   requires com.aoapps.appcluster.bom.book; // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId>
   requires com.aoapps.appcluster.book; // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId>

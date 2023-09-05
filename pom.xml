@@ -210,6 +210,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 <id>unpack.javadocs</id><phase>generate-resources</phase><goals><goal>unpack</goal></goals>
                 <configuration>
                   <artifactItems>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks</artifactId><classifier>javadoc</classifier>
+                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-ant-tasks/META-INF/resources/ant-tasks/apidocs</outputDirectory>
+                    </artifactItem>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId><classifier>javadoc</classifier> -->
@@ -630,6 +634,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                         </jar>
                       </sequential>
                     </macrodef>
+                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-ant-tasks" path="/ant-tasks" />
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId><classifier>javadoc</classifier> -->
@@ -802,6 +807,11 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       </build>
       <dependencies>
         <!-- Dependencies for javadocs -->
+        <dependency>
+          <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks</artifactId><version>1.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
         <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId><classifier>javadoc</classifier> -->
         <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId><classifier>javadoc</classifier> -->
         <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId><classifier>javadoc</classifier> -->
@@ -1222,6 +1232,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <dependencyManagement>
     <dependencies>
       <!-- Direct -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks-book</artifactId><version>1.0.0-SNAPSHOT</version>
+      </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId><version>2.0.1-POST-SNAPSHOT</version>
       </dependency>
@@ -1763,6 +1776,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 
   <dependencies>
     <!-- Direct -->
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks-book</artifactId>
+    </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId>
     </dependency>

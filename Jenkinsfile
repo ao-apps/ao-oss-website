@@ -36,6 +36,7 @@ def upstreamProjects = [
 
   // "publish" profile
   // Dependencies for javadocs
+  'ant-tasks', // <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId><classifier>javadoc</classifier>
@@ -139,6 +140,7 @@ def upstreamProjects = [
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId><classifier>javadoc</classifier>
 
   // Direct
+  'ant-tasks-book', // <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks-book</artifactId>
   'appcluster/all-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId>
   'appcluster/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId>
   'appcluster/book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId>
