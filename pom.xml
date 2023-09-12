@@ -207,345 +207,346 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
             <executions>
               <!-- Unpack all javadoc JARs in preparation for packaging as javadoc-webresources -->
               <execution>
-                <id>unpack.javadocs</id><phase>generate-resources</phase><goals><goal>unpack</goal></goals>
+                <id>copy.javadocs</id><phase>generate-resources</phase><goals><goal>copy</goal></goals>
                 <configuration>
+                  <outputDirectory>${project.build.directory}/dependency/copy.javadocs</outputDirectory>
                   <artifactItems>
                     <artifactItem>
                       <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-ant-tasks/META-INF/resources/ant-tasks/apidocs</outputDirectory>
+                      <destFileName>ao-ant-tasks-javadoc.jar</destFileName>
                     </artifactItem>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-appcluster</artifactId><classifier>javadoc</classifier> -->
                     <artifactItem>
                       <groupId>com.aoapps</groupId><artifactId>ao-appcluster-core</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-appcluster-core/META-INF/resources/appcluster/core/apidocs</outputDirectory>
+                      <destFileName>ao-appcluster-core-javadoc.jar</destFileName>
                     </artifactItem>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-appcluster-csync2/META-INF/resources/appcluster/csync2/apidocs</outputDirectory>
+                      <destFileName>ao-appcluster-csync2-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-appcluster-dnsonly/META-INF/resources/appcluster/dnsonly/apidocs</outputDirectory>
+                      <destFileName>ao-appcluster-dnsonly-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-appcluster-imap/META-INF/resources/appcluster/imap/apidocs</outputDirectory>
+                      <destFileName>ao-appcluster-imap-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-appcluster-jdbc/META-INF/resources/appcluster/jdbc/apidocs</outputDirectory>
+                      <destFileName>ao-appcluster-jdbc-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-badges/META-INF/resources/badges/apidocs</outputDirectory>
+                      <destFileName>ao-badges-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-cdn</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-cdn-data</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-cdn-data/META-INF/resources/cdn/data/apidocs</outputDirectory>
+                      <destFileName>ao-cdn-data-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-cdn-servlet/META-INF/resources/cdn/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-cdn-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-cdn-webapp/META-INF/resources/cdn/webapp/apidocs</outputDirectory>
+                      <destFileName>ao-cdn-webapp-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-collections/META-INF/resources/collections/apidocs</outputDirectory>
+                      <destFileName>ao-collections-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-collections-transformers/META-INF/resources/collections/transformers/apidocs</outputDirectory>
+                      <destFileName>ao-collections-transformers-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-concurrent/META-INF/resources/concurrent/apidocs</outputDirectory>
+                      <destFileName>ao-concurrent-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-cron</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-cron/META-INF/resources/cron/apidocs</outputDirectory>
+                      <destFileName>ao-cron-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-dao-api</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-dao-api/META-INF/resources/dao/api/apidocs</outputDirectory>
+                      <destFileName>ao-dao-api-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-dao-base</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-dao-base/META-INF/resources/dao/base/apidocs</outputDirectory>
+                      <destFileName>ao-dao-base-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-dao</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-dao-dbc</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-dao-dbc/META-INF/resources/dao/dbc/apidocs</outputDirectory>
+                      <destFileName>ao-dao-dbc-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-dbc</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-dbc/META-INF/resources/dbc/apidocs</outputDirectory>
+                      <destFileName>ao-dbc-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-encoding/META-INF/resources/encoding/apidocs</outputDirectory>
+                      <destFileName>ao-encoding-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-encoding-servlet/META-INF/resources/encoding/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-encoding-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-encoding-taglib/META-INF/resources/encoding/taglib/apidocs</outputDirectory>
+                      <destFileName>ao-encoding-taglib-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-error-pages</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-fluent-html-any/META-INF/resources/fluent-html/any/apidocs</outputDirectory>
+                      <destFileName>ao-fluent-html-any-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-fluent-html/META-INF/resources/fluent-html/apidocs</outputDirectory>
+                      <destFileName>ao-fluent-html-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-fluent-html-servlet/META-INF/resources/fluent-html/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-fluent-html-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-fluent-html-util/META-INF/resources/fluent-html/util/apidocs</outputDirectory>
+                      <destFileName>ao-fluent-html-util-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-hodgepodge/META-INF/resources/hodgepodge/apidocs</outputDirectory>
+                      <destFileName>ao-hodgepodge-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-io-buffer/META-INF/resources/io-buffer/apidocs</outputDirectory>
+                      <destFileName>ao-io-buffer-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-io-filesystems</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-io-filesystems/META-INF/resources/io-filesystems/apidocs</outputDirectory>
+                      <destFileName>ao-io-filesystems-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-io-filesystems-posix/META-INF/resources/io-filesystems/posix/apidocs</outputDirectory>
+                      <destFileName>ao-io-filesystems-posix-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-io-posix</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-io-posix/META-INF/resources/io-posix/apidocs</outputDirectory>
+                      <destFileName>ao-io-posix-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-lang/META-INF/resources/lang/apidocs</outputDirectory>
+                      <destFileName>ao-lang-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-api</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-api/META-INF/resources/messaging/api/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-api-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-base</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-base/META-INF/resources/messaging/base/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-base-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-bom</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-http</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-http/META-INF/resources/messaging/http/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-http-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-http-client/META-INF/resources/messaging/http/client/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-http-client-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-http-servlet/META-INF/resources/messaging/http/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-http-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-tcp/META-INF/resources/messaging/tcp/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-tcp-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-tcp-client/META-INF/resources/messaging/tcp/client/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-tcp-client-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-messaging-tcp-server/META-INF/resources/messaging/tcp/server/apidocs</outputDirectory>
+                      <destFileName>ao-messaging-tcp-server-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-net-partial-url/META-INF/resources/net-partial-url/apidocs</outputDirectory>
+                      <destFileName>ao-net-partial-url-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-net-partial-url-servlet/META-INF/resources/net-partial-url/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-net-partial-url-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-net-path-space/META-INF/resources/net-path-space/apidocs</outputDirectory>
+                      <destFileName>ao-net-path-space-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-net-types/META-INF/resources/net-types/apidocs</outputDirectory>
+                      <destFileName>ao-net-types-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-all</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-payments-api</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-payments-api/META-INF/resources/payments/api/apidocs</outputDirectory>
+                      <destFileName>ao-payments-api-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-payments-authorizeNet/META-INF/resources/payments/authorizeNet/apidocs</outputDirectory>
+                      <destFileName>ao-payments-authorizeNet-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments-bom</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-payments</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-payments-payflowPro/META-INF/resources/payments/payflowPro/apidocs</outputDirectory>
+                      <destFileName>ao-payments-payflowPro-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-payments-stripe</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-payments-stripe/META-INF/resources/payments/stripe/apidocs</outputDirectory>
+                      <destFileName>ao-payments-stripe-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-payments-test</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-payments-test/META-INF/resources/payments/test/apidocs</outputDirectory>
+                      <destFileName>ao-payments-test-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-payments-usaepay/META-INF/resources/payments/usaepay/apidocs</outputDirectory>
+                      <destFileName>ao-payments-usaepay-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-persistence/META-INF/resources/persistence/apidocs</outputDirectory>
+                      <destFileName>ao-persistence-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-security</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-security/META-INF/resources/security/apidocs</outputDirectory>
+                      <destFileName>ao-security-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-filter/META-INF/resources/servlet-filter/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-filter-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-api/META-INF/resources/servlet-firewall/api/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-api-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-filter/META-INF/resources/servlet-firewall/filter/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-filter-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-path-space/META-INF/resources/servlet-firewall/path-space/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-path-space-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-rules/META-INF/resources/servlet-firewall/rules/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-rules-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-virtual-hosts/META-INF/resources/servlet-firewall/virtual-hosts/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-virtual-hosts-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-virtual-hosts-path-space/META-INF/resources/servlet-firewall/virtual-hosts/path-space/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-virtual-hosts-path-space-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-firewall-webjars/META-INF/resources/servlet-firewall/webjars/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-firewall-webjars-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-last-modified/META-INF/resources/servlet-last-modified/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-last-modified-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-subrequest/META-INF/resources/servlet-subrequest/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-subrequest-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-servlet-util/META-INF/resources/servlet-util/apidocs</outputDirectory>
+                      <destFileName>ao-servlet-util-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-sql</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-sql/META-INF/resources/sql/apidocs</outputDirectory>
+                      <destFileName>ao-sql-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-sql-failfast</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-sql-failfast/META-INF/resources/sql/failfast/apidocs</outputDirectory>
+                      <destFileName>ao-sql-failfast-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-sql-pool</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-sql-pool/META-INF/resources/sql/pool/apidocs</outputDirectory>
+                      <destFileName>ao-sql-pool-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-sql-tracker</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-sql-tracker/META-INF/resources/sql/tracker/apidocs</outputDirectory>
+                      <destFileName>ao-sql-tracker-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-sql-wrapper/META-INF/resources/sql/wrapper/apidocs</outputDirectory>
+                      <destFileName>ao-sql-wrapper-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-style/META-INF/resources/style/apidocs</outputDirectory>
+                      <destFileName>ao-style-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-taglib/META-INF/resources/taglib/apidocs</outputDirectory>
+                      <destFileName>ao-taglib-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-tempfiles/META-INF/resources/tempfiles/apidocs</outputDirectory>
+                      <destFileName>ao-tempfiles-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-tempfiles-servlet/META-INF/resources/tempfiles/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-tempfiles-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-tld-parser/META-INF/resources/tld-parser/apidocs</outputDirectory>
+                      <destFileName>ao-tld-parser-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-tlds/META-INF/resources/tlds/apidocs</outputDirectory>
+                      <destFileName>ao-tlds-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-web-framework</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-web-framework/META-INF/resources/web-framework/apidocs</outputDirectory>
+                      <destFileName>ao-web-framework-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-web-resources</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-web-resources-optimizer/META-INF/resources/web-resources/optimizer/apidocs</outputDirectory>
+                      <destFileName>ao-web-resources-optimizer-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-web-resources-registry/META-INF/resources/web-resources/registry/apidocs</outputDirectory>
+                      <destFileName>ao-web-resources-registry-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-web-resources-renderer/META-INF/resources/web-resources/renderer/apidocs</outputDirectory>
+                      <destFileName>ao-web-resources-renderer-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-web-resources-servlet/META-INF/resources/web-resources/servlet/apidocs</outputDirectory>
+                      <destFileName>ao-web-resources-servlet-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier>
-                      <outputDirectory>${project.build.directory}/dependency/unpack.javadocs/com.aoapps/ao-web-resources-taglib/META-INF/resources/web-resources/taglib/apidocs</outputDirectory>
+                      <destFileName>ao-web-resources-taglib-javadoc.jar</destFileName>
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId><classifier>javadoc</classifier> -->
@@ -593,45 +594,47 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 <id>create-javadoc-webresources</id><phase>generate-resources</phase><goals><goal>run</goal></goals>
                 <configuration>
                   <target>
-                    <!-- See https://stackoverflow.com/a/14740667/7121505 -->
-                    <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy"/>
-                    <macrodef name="filedate">
-                      <attribute name="file"/>
-                      <attribute name="property"/>
-                      <sequential>
-                        <groovy>
-                          import java.io.File
-                          import java.io.IOException
-                          File file = new File("@{file}")
-                          if (!file.exists()) {
-                            throw new IOException("File does not exist: " + file);
-                          }
-                          if (!file.isFile()) {
-                            throw new IOException("Not a regular file: " + file);
-                          }
-                          properties.'@{property}' = file.lastModified()
-                       </groovy>
-                      </sequential>
-                    </macrodef>
                     <macrodef name="create-javadoc-webresource">
                       <attribute name="groupId"/>
                       <attribute name="artifactId"/>
                       <attribute name="path"/>
                       <sequential>
-                        <filedate
-                          file="${project.build.directory}/dependency/unpack.javadocs/@{groupId}/@{artifactId}/META-INF/resources@{path}/apidocs/META-INF/MANIFEST.MF"
-                          property="@{groupId}:@{artifactId}.modified"
+                        <!--
+                          As a requirement for reproducible builds, much care is taken to use the original timestamp
+                          of META-INF for all newly introduced directory levels:
+                          1) <jar> task does not maintain the timestamp of the MANIFEST.MF file, so using <zip>
+                          2) Generating a small ZIP to provide the timestamps for the new directories, matching META-INF
+                          3) Extracting META-INF/MANIFEST.MF directly to maintain timestamp
+                          4) All entries copied zip-to-zip to not lose directory timestamps
+                        -->
+                        <!-- Create ZIP directories to patch into new ZIP -->
+                        <taskdef resource="com/aoapps/ant/tasks/antlib.xml" />
+                        <create-zipped-directories
+                          referenceZip="${project.build.directory}/dependency/copy.javadocs/@{artifactId}-javadoc.jar"
+                          referencePath="META-INF/"
+                          generateZip="${project.build.directory}/create-javadoc-webresource/@{artifactId}-new-directories.zip"
+                          generatePath="META-INF/resources@{path}/apidocs/"
                         />
-                        <jar
+                        <zip
                           destfile="${project.build.directory}/dependency/javadoc-webresources/WEB-INF/lib/@{artifactId}-${@{groupId}:@{artifactId}:jar:javadoc.version}-javadoc-webresource.jar"
-                          manifest="${project.build.directory}/dependency/unpack.javadocs/@{groupId}/@{artifactId}/META-INF/resources@{path}/apidocs/META-INF/MANIFEST.MF"
-                          modificationtime="${@{groupId}:@{artifactId}.modified}"
+                          keepcompression="true"
+                          encoding="UTF8"
+                          whenempty="fail"
+                          duplicate="fail"
                         >
-                          <fileset
-                            dir="${project.build.directory}/dependency/unpack.javadocs/@{groupId}/@{artifactId}"
+                          <zipfileset
+                            src="${project.build.directory}/create-javadoc-webresource/@{artifactId}-new-directories.zip"
+                          />
+                          <zipfileset
+                            src="${project.build.directory}/dependency/copy.javadocs/@{artifactId}-javadoc.jar"
+                            includes="META-INF/MANIFEST.MF"
+                          />
+                          <zipfileset
+                            src="${project.build.directory}/dependency/copy.javadocs/@{artifactId}-javadoc.jar"
+                            prefix="META-INF/resources@{path}/apidocs"
                             excludes="**/MANIFEST.MF"
                           />
-                        </jar>
+                        </zip>
                       </sequential>
                     </macrodef>
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-ant-tasks" path="/ant-tasks" />
@@ -797,11 +800,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 </configuration>
               </execution>
             </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.apache.groovy</groupId><artifactId>groovy-ant</artifactId><version>4.0.14</version>
-              </dependency>
-            </dependencies>
           </plugin>
         </plugins>
       </build>
