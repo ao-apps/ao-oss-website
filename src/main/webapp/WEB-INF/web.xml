@@ -68,14 +68,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <param-value>default</param-value>
   </context-param>
 
-  <context-param>
-    <description><![CDATA[
-      Enables multiple breadcrumb lists (disabled by default).
-    ]]></description>
-    <param-name>com.semanticcms.core.breadcrumblist.jsonld.BreadcrumbListJsonLd.enableMultiBreadcrumb</param-name>
-    <param-value>true</param-value>
-  </context-param>
-
   <!-- Require all session attributes to be Serializable -->
   <distributable />
 
