@@ -32,7 +32,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 
   <context-param>
     <description>
-      The Google Analytics tracking ID for this site.
+      The Google Analytics 4 (GA4) Measurement ID for this site.
       If not provided or empty, the tracking script is not added.
     </description>
     <param-name>com.semanticcms.googleanalytics.GoogleAnalytics.trackingId</param-name>
