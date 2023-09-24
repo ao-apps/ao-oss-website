@@ -1358,7 +1358,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book</artifactId><version>1.1.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>5.5.1-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId><version>5.5.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book</artifactId><version>3.1.0-POST-SNAPSHOT</version>
