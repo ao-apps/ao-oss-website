@@ -928,7 +928,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         </dependency>
         <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-error-pages</artifactId><classifier>javadoc</classifier> -->
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.7.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.8.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -943,7 +943,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.8.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1212,12 +1212,12 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.6.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.6.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1227,7 +1227,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.6.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1322,10 +1322,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId><version>4.0.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-error-pages-book</artifactId><version>1.0.1-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-error-pages-book</artifactId><version>1.1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId><version>0.7.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId><version>0.8.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book</artifactId><version>0.7.0-POST-SNAPSHOT</version>
@@ -1334,7 +1334,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId><version>0.7.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId><version>0.7.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId><version>0.8.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId><version>5.1.2-POST-SNAPSHOT</version>
@@ -1523,22 +1523,22 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId><version>3.0.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId><version>0.6.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId><version>0.4.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId><version>0.4.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId><version>0.6.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId><version>0.6.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId><version>0.5.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId><version>0.4.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId><version>0.6.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><version>7.0.1-POST-SNAPSHOT</version>
@@ -1547,7 +1547,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.11.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.10.0${POST-SNAPSHOT}</version>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.11.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
@@ -1578,7 +1578,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
@@ -1623,7 +1623,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
@@ -1653,7 +1653,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.14.1${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.19.1${POST-SNAPSHOT}</version>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.20.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.15.2${POST-SNAPSHOT}</version>
@@ -1691,20 +1691,20 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId><version>1.3.1${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.12.3${POST-SNAPSHOT}</version>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.13.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <!-- Runtime Transitive -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.4.1${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.8.5</version>
@@ -1740,7 +1740,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-style</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
-        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-view-content</artifactId><version>1.9.0${POST-SNAPSHOT}</version>
