@@ -1544,7 +1544,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId><version>0.4.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId><version>0.6.0-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId><version>0.6.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId><version>0.6.0-SNAPSHOT</version>
