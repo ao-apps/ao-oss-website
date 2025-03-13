@@ -1039,7 +1039,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         </dependency>
         <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier> -->
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><version>0.1.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><version>0.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1126,12 +1126,12 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>0.2.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>0.3.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><version>0.1.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><version>0.3.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1412,7 +1412,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId><version>1.2.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId><version>0.2.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
@@ -1469,7 +1469,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId><version>0.2.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId><version>0.3.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId><version>0.2.0-POST-SNAPSHOT</version>
@@ -1481,10 +1481,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId><version>0.1.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId><version>0.2.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId><version>0.3.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId><version>0.1.1-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId><version>0.3.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
