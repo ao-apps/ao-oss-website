@@ -19,7 +19,7 @@ The [oss.aoapps.com](https://oss.aoapps.com/) website.
 
 ## Project Links
 * [Project Home](https://oss.aoapps.com/)
-* [Maven Central Repository](https://central.sonatype.com/artifact/com.aoapps/ao-oss-website)
+* [Central Repository](https://central.sonatype.com/artifact/com.aoapps/ao-oss-website)
 * [GitHub](https://github.com/ao-apps/ao-oss-website)
 
 ## Contact Us
