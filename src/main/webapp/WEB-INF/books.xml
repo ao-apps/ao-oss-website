@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ao-oss-website - The oss.aoapps.com website.
-Copyright (C) 2021, 2022, 2023  AO Industries, Inc.
+Copyright (C) 2021, 2022, 2023, 2025  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -147,7 +147,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/javadoc-resources" cvsworkDirectory="~/maven2/ao/oss/javadoc-resources/book/src/main/resources-filtered/META-INF/resources/javadoc-resources">
     <parent book="/" page="/maven.jspx" />
   </book>
-  <book name="/javaee-web-api-bom" cvsworkDirectory="~/maven2/ao/oss/javaee-web-api-bom/book/src/main/resources-filtered/META-INF/resources/javaee-web-api-bom">
+  <book name="/jakartaee-web-profile-bom" cvsworkDirectory="~/maven2/ao/oss/javaee-web-api-bom/book/src/main/resources-filtered/META-INF/resources/jakartaee-web-profile-bom">
     <parent book="/" page="/maven.jspx" />
     <parent book="/" page="/web-development.jspx" />
   </book>

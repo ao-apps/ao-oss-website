@@ -36,6 +36,8 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Must be set to ${git.commit.time} for snapshots or ISO 8601 timestamp for releases. -->
     <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
     <module.name>com.aoapps.oss.website</module.name>
+    <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://oss.aoapps.com/">AO OSS</a>
+/ <a target="${javadoc.target}" href="${project.url}">Website</a>]]></javadoc.breadcrumbs>
 
     <!-- The Google Analytics 4 (GA4) Measurement ID for this site. -->
     <google.analytics.trackingId>G-RYD4Z0W4YW</google.analytics.trackingId>
@@ -180,6 +182,54 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   </build>
 
   <profiles>
+    <profile>
+      <id>offlineLinks</id><activation><file><exists>src/main/java</exists></file></activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>unpack.offlineLinks</id><phase>${unpack.offlineLinks.phase}</phase><goals><goal>unpack</goal></goals>
+                <configuration>
+                  <artifactItems>
+                    <!-- Direct -->
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</outputDirectory>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</outputDirectory>
+                    </artifactItem>
+                    <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <offlineLinks combine.children="append">
+                <!-- Direct -->
+                <offlineLink>
+                  <url>https://oss.aoapps.com/net-types/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</location>
+                </offlineLink>
+                <offlineLink>
+                  <url>https://oss.aoapps.com/servlet-util/apidocs/</url>
+                  <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</location>
+                </offlineLink>
+                <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+              </offlineLinks>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <!-- Features only enabled during development time -->
       <id>development</id>
@@ -1421,6 +1471,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>3.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId><version>3.0.0-SNAPSHOT</version>
       </dependency>
       <dependency>
@@ -1499,6 +1552,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId><version>5.4.0-SNAPSHOT</version>
       </dependency>
       <dependency>
@@ -1559,6 +1615,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><version>7.0.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
+        <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.1.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
         <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.14.0-SNAPSHOT</version>
       </dependency>
       <dependency>
@@ -1608,16 +1668,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>3.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-      </dependency>
-      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>3.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
@@ -1648,10 +1702,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       </dependency>
       <dependency>
         <groupId>javax.el</groupId><artifactId>javax.el-api</artifactId><version>3.0.0</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.1.0</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -1962,6 +2012,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
     </dependency>
     <dependency>
@@ -2040,6 +2093,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId>
     </dependency>
     <dependency>
@@ -2098,6 +2154,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>

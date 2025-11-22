@@ -201,6 +201,7 @@ def upstreamProjects = [
   'net-partial-url-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
   'net-partial-url-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
   'net-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
+  'net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
   'net-types-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
   'book', // <groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId>
   'parent-book', // <groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId>
@@ -227,6 +228,7 @@ def upstreamProjects = [
   'servlet-firewall/webjars-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
   'servlet-last-modified-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>
   'servlet-subrequest-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
+  'servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
   'servlet-util-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId>
   'sql-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-book</artifactId>
   'sql-failfast-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book</artifactId>
@@ -247,6 +249,7 @@ def upstreamProjects = [
   'web-resources/servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
   'web-resources/taglib-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
   'javaee-web-api-bom-book', // <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
+  // No Jenkins: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
   'pgp-keys-map-book', // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
   '../semanticcms-1.x/core/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
   '../semanticcms-1.x/news/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
