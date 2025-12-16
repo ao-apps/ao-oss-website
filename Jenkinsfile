@@ -54,8 +54,8 @@ def upstreamProjects = [
   'badges-1.x', // <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-cdn</artifactId><classifier>javadoc</classifier>
   'cdn/data', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data</artifactId><classifier>javadoc</classifier>
-  'cdn/servlet', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet</artifactId><classifier>javadoc</classifier>
-  'cdn/webapp', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp</artifactId><classifier>javadoc</classifier>
+  'cdn/servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet</artifactId><classifier>javadoc</classifier>
+  'cdn/webapp-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config</artifactId><classifier>javadoc</classifier>
   'collections', // <groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><classifier>javadoc</classifier>
   'collections-transformers', // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers</artifactId><classifier>javadoc</classifier>
@@ -67,12 +67,12 @@ def upstreamProjects = [
   'dao/dbc', // <groupId>com.aoapps</groupId><artifactId>ao-dao-dbc</artifactId><classifier>javadoc</classifier>
   'dbc', // <groupId>com.aoapps</groupId><artifactId>ao-dbc</artifactId><classifier>javadoc</classifier>
   'encoding', // <groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><classifier>javadoc</classifier>
-  'encoding-servlet', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><classifier>javadoc</classifier>
-  'encoding-taglib', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier>
+  'encoding-servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><classifier>javadoc</classifier>
+  'encoding-taglib-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-error-pages</artifactId><classifier>javadoc</classifier>
   'fluent-html-any', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><classifier>javadoc</classifier>
   'fluent-html', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><classifier>javadoc</classifier>
-  'fluent-html-servlet', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><classifier>javadoc</classifier>
+  'fluent-html-servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><classifier>javadoc</classifier>
   'fluent-html-util', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><classifier>javadoc</classifier>
   'hodgepodge', // <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><classifier>javadoc</classifier>
   'io-buffer', // <groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><classifier>javadoc</classifier>
@@ -89,13 +89,13 @@ def upstreamProjects = [
   'messaging/http', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http</artifactId><classifier>javadoc</classifier>
   'messaging/http-client', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js</artifactId><classifier>javadoc</classifier>
-  'messaging/http-servlet', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><classifier>javadoc</classifier>
+  'messaging/http-servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet</artifactId><classifier>javadoc</classifier>
   'messaging/tcp', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp</artifactId><classifier>javadoc</classifier>
   'messaging/tcp-client', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client</artifactId><classifier>javadoc</classifier>
   'messaging/tcp-server', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier>
   'net-partial-url', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><classifier>javadoc</classifier>
-  'net-partial-url-servlet', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><classifier>javadoc</classifier>
+  'net-partial-url-servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><classifier>javadoc</classifier>
   'net-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
   'net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss</artifactId><classifier>javadoc</classifier>
@@ -111,37 +111,37 @@ def upstreamProjects = [
   'payments/usaepay', // <groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay</artifactId><classifier>javadoc</classifier>
   'persistence', // <groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><classifier>javadoc</classifier>
   'security', // <groupId>com.aoapps</groupId><artifactId>ao-security</artifactId><classifier>javadoc</classifier>
-  'servlet-filter', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/api', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
+  'servlet-filter-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/api', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/filter', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/rules', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/virtual-hosts', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/virtual-hosts-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><classifier>javadoc</classifier>
-  'servlet-last-modified', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><classifier>javadoc</classifier>
-  'servlet-subrequest', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><classifier>javadoc</classifier>
-  'servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/filter', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/rules', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/virtual-hosts', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/virtual-hosts-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><classifier>javadoc</classifier>
+  'servlet-firewall-javaee/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><classifier>javadoc</classifier>
+  'servlet-last-modified-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><classifier>javadoc</classifier>
+  'servlet-subrequest-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><classifier>javadoc</classifier>
+  'servlet-util-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
   'sql', // <groupId>com.aoapps</groupId><artifactId>ao-sql</artifactId><classifier>javadoc</classifier>
   'sql-failfast', // <groupId>com.aoapps</groupId><artifactId>ao-sql-failfast</artifactId><classifier>javadoc</classifier>
   'sql-pool', // <groupId>com.aoapps</groupId><artifactId>ao-sql-pool</artifactId><classifier>javadoc</classifier>
   'sql-tracker', // <groupId>com.aoapps</groupId><artifactId>ao-sql-tracker</artifactId><classifier>javadoc</classifier>
   'sql-wrapper', // <groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper</artifactId><classifier>javadoc</classifier>
-  'style', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><classifier>javadoc</classifier>
-  'taglib', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier>
+  'style-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><classifier>javadoc</classifier>
+  'taglib-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier>
   'tempfiles', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><classifier>javadoc</classifier>
-  'tempfiles-servlet', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><classifier>javadoc</classifier>
+  'tempfiles-servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><classifier>javadoc</classifier>
   'tld-parser', // <groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><classifier>javadoc</classifier>
   'tlds', // <groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><classifier>javadoc</classifier>
-  'web-framework', // <groupId>com.aoapps</groupId><artifactId>ao-web-framework</artifactId><classifier>javadoc</classifier>
+  'web-framework-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-framework</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-web-resources</artifactId><classifier>javadoc</classifier>
-  'web-resources/optimizer', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer</artifactId><classifier>javadoc</classifier>
+  'web-resources/optimizer-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer</artifactId><classifier>javadoc</classifier>
   'web-resources/registry', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><classifier>javadoc</classifier>
-  'web-resources/renderer', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><classifier>javadoc</classifier>
-  'web-resources/servlet', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
-  'web-resources/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier>
+  'web-resources/renderer-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><classifier>javadoc</classifier>
+  'web-resources/servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
+  'web-resources/taglib-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId><classifier>javadoc</classifier>
 
@@ -158,8 +158,8 @@ def upstreamProjects = [
   'badges-1.x-book', // <groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
   'cdn/book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-book</artifactId>
   'cdn/data-book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data-book</artifactId>
-  'cdn/servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet-book</artifactId>
-  'cdn/webapp-book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp-book</artifactId>
+  'cdn/servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet-book</artifactId>
+  'cdn/webapp-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp-book</artifactId>
   'checkstyle-config-book', // <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config-book</artifactId>
   'collections-book', // <groupId>com.aoapps</groupId><artifactId>ao-collections-book</artifactId>
   'collections-transformers-book', // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId>
@@ -171,12 +171,12 @@ def upstreamProjects = [
   'dao/dbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-dao-dbc-book</artifactId>
   'dbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-dbc-book</artifactId>
   'encoding-book', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId>
-  'encoding-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId>
-  'encoding-taglib-book', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId>
-  'error-pages-book', // <groupId>com.aoapps</groupId><artifactId>ao-error-pages-book</artifactId>
+  'encoding-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId>
+  'encoding-taglib-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId>
+  'error-pages-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-error-pages-book</artifactId>
   'fluent-html-any-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId>
   'fluent-html-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book</artifactId>
-  'fluent-html-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId>
+  'fluent-html-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId>
   'fluent-html-util-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId>
   'hodgepodge-book', // <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId>
   'io-buffer-book', // <groupId>com.aoapps</groupId><artifactId>ao-io-buffer-book</artifactId>
@@ -193,13 +193,13 @@ def upstreamProjects = [
   'messaging/http-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId>
   'messaging/http-client-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-book</artifactId>
   'messaging/http-client-js-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js-book</artifactId>
-  'messaging/http-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId>
+  'messaging/http-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId>
   'messaging/tcp-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book</artifactId>
   'messaging/tcp-client-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId>
   'messaging/tcp-server-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId>
   'mime-mappings-book', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
   'net-partial-url-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
-  'net-partial-url-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
+  'net-partial-url-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
   'net-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
   'net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
   'net-types-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
@@ -216,38 +216,38 @@ def upstreamProjects = [
   'payments/usaepay-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay-book</artifactId>
   'persistence-book', // <groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId>
   'security-book', // <groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId>
-  'servlet-filter-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
-  'servlet-firewall/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
-  'servlet-firewall/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
-  'servlet-firewall/book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId>
-  'servlet-firewall/filter-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId>
-  'servlet-firewall/path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId>
-  'servlet-firewall/rules-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId>
-  'servlet-firewall/virtual-hosts-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId>
-  'servlet-firewall/virtual-hosts-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId>
-  'servlet-firewall/webjars-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
-  'servlet-last-modified-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>
-  'servlet-subrequest-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
-  'servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
-  'servlet-util-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId>
+  'servlet-filter-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
+  'servlet-firewall-javaee/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
+  'servlet-firewall-javaee/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
+  'servlet-firewall-javaee/book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId>
+  'servlet-firewall-javaee/filter-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId>
+  'servlet-firewall-javaee/path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId>
+  'servlet-firewall-javaee/rules-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId>
+  'servlet-firewall-javaee/virtual-hosts-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId>
+  'servlet-firewall-javaee/virtual-hosts-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId>
+  'servlet-firewall-javaee/webjars-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
+  'servlet-last-modified-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>
+  'servlet-subrequest-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
+  'servlet-util-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
+  'servlet-util-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId>
   'sql-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-book</artifactId>
   'sql-failfast-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book</artifactId>
   'sql-pool-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book</artifactId>
   'sql-tracker-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-tracker-book</artifactId>
   'sql-wrapper-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper-book</artifactId>
-  'style-book', // <groupId>com.aoapps</groupId><artifactId>ao-style-book</artifactId>
-  'taglib-book', // <groupId>com.aoapps</groupId><artifactId>ao-taglib-book</artifactId>
+  'style-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-style-book</artifactId>
+  'taglib-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-taglib-book</artifactId>
   'tempfiles-book', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-book</artifactId>
-  'tempfiles-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet-book</artifactId>
+  'tempfiles-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet-book</artifactId>
   'tld-parser-book', // <groupId>com.aoapps</groupId><artifactId>ao-tld-parser-book</artifactId>
   'tlds-book', // <groupId>com.aoapps</groupId><artifactId>ao-tlds-book</artifactId>
-  'web-framework-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId>
+  'web-framework-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId>
   'web-resources/book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId>
-  'web-resources/optimizer-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId>
+  'web-resources/optimizer-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId>
   'web-resources/registry-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId>
-  'web-resources/renderer-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
-  'web-resources/servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
-  'web-resources/taglib-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
+  'web-resources/renderer-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
+  'web-resources/servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
+  'web-resources/taglib-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
   'javaee-web-api-bom-book', // <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
   // No Jenkins: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
   'pgp-keys-map-book', // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
@@ -257,7 +257,7 @@ def upstreamProjects = [
 
   // Runtime Direct
   'mime-mappings', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId>
-  'servlet-filter', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId>
+  'servlet-filter-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId>
   '../semanticcms-1.x/google-analytics', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId>
   '../semanticcms-1.x/theme-documentation', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>
 

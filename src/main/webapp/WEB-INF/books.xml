@@ -64,10 +64,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/cdn/data" cvsworkDirectory="~/maven2/ao/oss/cdn/data/book/src/main/resources-filtered/META-INF/resources/cdn/data">
     <parent book="/cdn" page="/index.jspx" shortTitle="Data" />
   </book>
-  <book name="/cdn/servlet" cvsworkDirectory="~/maven2/ao/oss/cdn/servlet/book/src/main/resources-filtered/META-INF/resources/cdn/servlet">
+  <book name="/cdn/servlet" cvsworkDirectory="~/maven2/ao/oss/cdn/servlet-javaee/book/src/main/resources-filtered/META-INF/resources/cdn/servlet">
     <parent book="/cdn" page="/index.jspx" shortTitle="Servlet" />
   </book>
-  <book name="/cdn/webapp" cvsworkDirectory="~/maven2/ao/oss/cdn/webapp/book/src/main/resources-filtered/META-INF/resources/cdn/webapp">
+  <book name="/cdn/webapp" cvsworkDirectory="~/maven2/ao/oss/cdn/webapp-javaee/book/src/main/resources-filtered/META-INF/resources/cdn/webapp">
     <parent book="/cdn" page="/index.jspx" shortTitle="Webapp" />
   </book>
   <book name="/checkstyle-config" cvsworkDirectory="~/maven2/ao/oss/checkstyle-config/book/src/main/resources-filtered/META-INF/resources/checkstyle-config">
@@ -103,15 +103,15 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/encoding" cvsworkDirectory="~/maven2/ao/oss/encoding/book/src/main/resources-filtered/META-INF/resources/encoding">
     <parent book="/" page="/java-libraries.jspx" />
   </book>
-  <book name="/encoding/servlet" cvsworkDirectory="~/maven2/ao/oss/encoding-servlet/book/src/main/resources-filtered/META-INF/resources/encoding/servlet">
+  <book name="/encoding/servlet" cvsworkDirectory="~/maven2/ao/oss/encoding-servlet-javaee/book/src/main/resources-filtered/META-INF/resources/encoding/servlet">
     <parent book="/encoding" page="/index.jspx" shortTitle="Servlet" />
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/encoding/taglib" cvsworkDirectory="~/maven2/ao/oss/encoding-taglib/book/src/main/resources-filtered/META-INF/resources/encoding/taglib">
+  <book name="/encoding/taglib" cvsworkDirectory="~/maven2/ao/oss/encoding-taglib-javaee/book/src/main/resources-filtered/META-INF/resources/encoding/taglib">
     <parent book="/encoding" page="/index.jspx" shortTitle="Taglib" />
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/error-pages" cvsworkDirectory="~/maven2/ao/oss/error-pages/book/src/main/resources-filtered/META-INF/resources/error-pages">
+  <book name="/error-pages" cvsworkDirectory="~/maven2/ao/oss/error-pages-javaee/book/src/main/resources-filtered/META-INF/resources/error-pages">
     <parent book="/" page="/web-development.jspx" />
   </book>
   <book name="/fluent-html" cvsworkDirectory="~/maven2/ao/oss/fluent-html/book/src/main/resources-filtered/META-INF/resources/fluent-html">
@@ -120,7 +120,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/fluent-html/any" cvsworkDirectory="~/maven2/ao/oss/fluent-html-any/book/src/main/resources-filtered/META-INF/resources/fluent-html/any">
     <parent book="/fluent-html" page="/index.jspx" shortTitle="Any" />
   </book>
-  <book name="/fluent-html/servlet" cvsworkDirectory="~/maven2/ao/oss/fluent-html-servlet/book/src/main/resources-filtered/META-INF/resources/fluent-html/servlet">
+  <book name="/fluent-html/servlet" cvsworkDirectory="~/maven2/ao/oss/fluent-html-servlet-javaee/book/src/main/resources-filtered/META-INF/resources/fluent-html/servlet">
     <parent book="/fluent-html" page="/index.jspx" shortTitle="Servlet" />
   </book>
   <book name="/fluent-html/util" cvsworkDirectory="~/maven2/ao/oss/fluent-html-util/book/src/main/resources-filtered/META-INF/resources/fluent-html/util">
@@ -195,7 +195,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/net-partial-url" cvsworkDirectory="~/maven2/ao/oss/net-partial-url/book/src/main/resources-filtered/META-INF/resources/net-partial-url">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/net-partial-url/servlet" cvsworkDirectory="~/maven2/ao/oss/net-partial-url-servlet/book/src/main/resources-filtered/META-INF/resources/net-partial-url/servlet">
+  <book name="/net-partial-url/servlet" cvsworkDirectory="~/maven2/ao/oss/net-partial-url-servlet-javaee/book/src/main/resources-filtered/META-INF/resources/net-partial-url/servlet">
     <parent book="/net-partial-url" page="/index.jspx" shortTitle="Servlet" />
   </book>
   <book name="/net-path-space" cvsworkDirectory="~/maven2/ao/oss/net-path-space/book/src/main/resources-filtered/META-INF/resources/net-path-space">
@@ -243,43 +243,43 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/security" cvsworkDirectory="~/maven2/ao/oss/security/book/src/main/resources-filtered/META-INF/resources/security">
     <parent book="/" page="/java-libraries.jspx" />
   </book>
-  <book name="/servlet-filter" cvsworkDirectory="~/maven2/ao/oss/servlet-filter/book/src/main/resources-filtered/META-INF/resources/servlet-filter">
+  <book name="/servlet-filter" cvsworkDirectory="~/maven2/ao/oss/servlet-filter-javaee/book/src/main/resources-filtered/META-INF/resources/servlet-filter">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/servlet-firewall" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/book/src/main/resources-filtered/META-INF/resources/servlet-firewall">
+  <book name="/servlet-firewall" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/book/src/main/resources-filtered/META-INF/resources/servlet-firewall">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/servlet-firewall/api" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/api/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/api">
+  <book name="/servlet-firewall/api" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/api/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/api">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="API" />
   </book>
-  <book name="/servlet-firewall/bom" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/bom/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/bom">
+  <book name="/servlet-firewall/bom" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/bom/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/bom">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="BOM" />
   </book>
-  <book name="/servlet-firewall/filter" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/filter/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/filter">
+  <book name="/servlet-firewall/filter" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/filter/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/filter">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Filter" />
   </book>
-  <book name="/servlet-firewall/path-space" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/path-space/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/path-space">
+  <book name="/servlet-firewall/path-space" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/path-space/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/path-space">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Path Space" />
   </book>
-  <book name="/servlet-firewall/rules" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/rules/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/rules">
+  <book name="/servlet-firewall/rules" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/rules/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/rules">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Rules" />
   </book>
-  <book name="/servlet-firewall/virtual-hosts" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/virtual-hosts/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/virtual-hosts">
+  <book name="/servlet-firewall/virtual-hosts" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/virtual-hosts/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/virtual-hosts">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Virtual Hosts" />
   </book>
-  <book name="/servlet-firewall/virtual-hosts/path-space" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/virtual-hosts-path-space/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/virtual-hosts/path-space">
+  <book name="/servlet-firewall/virtual-hosts/path-space" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/virtual-hosts-path-space/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/virtual-hosts/path-space">
     <parent book="/servlet-firewall/virtual-hosts" page="/index.jspx" shortTitle="Path Space" />
   </book>
-  <book name="/servlet-firewall/webjars" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/webjars/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/webjars">
+  <book name="/servlet-firewall/webjars" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall-javaee/webjars/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/webjars">
     <parent book="/servlet-firewall" page="/index.jspx" shortTitle="WebJars" />
   </book>
-  <book name="/servlet-last-modified" cvsworkDirectory="~/maven2/ao/oss/servlet-last-modified/book/src/main/resources-filtered/META-INF/resources/servlet-last-modified">
+  <book name="/servlet-last-modified" cvsworkDirectory="~/maven2/ao/oss/servlet-last-modified-javaee/book/src/main/resources-filtered/META-INF/resources/servlet-last-modified">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/servlet-subrequest" cvsworkDirectory="~/maven2/ao/oss/servlet-subrequest/book/src/main/resources-filtered/META-INF/resources/servlet-subrequest">
+  <book name="/servlet-subrequest" cvsworkDirectory="~/maven2/ao/oss/servlet-subrequest-javaee/book/src/main/resources-filtered/META-INF/resources/servlet-subrequest">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/servlet-util" cvsworkDirectory="~/maven2/ao/oss/servlet-util/book/src/main/resources-filtered/META-INF/resources/servlet-util">
+  <book name="/servlet-util" cvsworkDirectory="~/maven2/ao/oss/servlet-util-javaee/book/src/main/resources-filtered/META-INF/resources/servlet-util">
     <parent book="/" page="/web-development.jspx" />
   </book>
   <book name="/sql" cvsworkDirectory="~/maven2/ao/oss/sql/book/src/main/resources-filtered/META-INF/resources/sql">
@@ -297,16 +297,16 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/sql/wrapper" cvsworkDirectory="~/maven2/ao/oss/sql-wrapper/book/src/main/resources-filtered/META-INF/resources/sql/wrapper">
     <parent book="/sql" page="/index.jspx" shortTitle="Wrapper" />
   </book>
-  <book name="/style" cvsworkDirectory="~/maven2/ao/oss/style/book/src/main/resources-filtered/META-INF/resources/style">
+  <book name="/style" cvsworkDirectory="~/maven2/ao/oss/style-javaee/book/src/main/resources-filtered/META-INF/resources/style">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/taglib" cvsworkDirectory="~/maven2/ao/oss/taglib/book/src/main/resources-filtered/META-INF/resources/taglib">
+  <book name="/taglib" cvsworkDirectory="~/maven2/ao/oss/taglib-javaee/book/src/main/resources-filtered/META-INF/resources/taglib">
     <parent book="/" page="/web-development.jspx" />
   </book>
   <book name="/tempfiles" cvsworkDirectory="~/maven2/ao/oss/tempfiles/book/src/main/resources-filtered/META-INF/resources/tempfiles">
     <parent book="/" page="/java-libraries.jspx" />
   </book>
-  <book name="/tempfiles/servlet" cvsworkDirectory="~/maven2/ao/oss/tempfiles-servlet/book/src/main/resources-filtered/META-INF/resources/tempfiles/servlet">
+  <book name="/tempfiles/servlet" cvsworkDirectory="~/maven2/ao/oss/tempfiles-servlet-javaee/book/src/main/resources-filtered/META-INF/resources/tempfiles/servlet">
     <parent book="/tempfiles" page="/index.jspx" shortTitle="Servlet" />
     <parent book="/" page="/web-development.jspx" />
   </book>
@@ -316,25 +316,25 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/tlds" cvsworkDirectory="~/maven2/ao/oss/tlds/book/src/main/resources-filtered/META-INF/resources/tlds">
     <parent book="/" page="/java-libraries.jspx" />
   </book>
-  <book name="/web-framework" cvsworkDirectory="~/maven2/ao/oss/web-framework/book/src/main/resources-filtered/META-INF/resources/web-framework">
+  <book name="/web-framework" cvsworkDirectory="~/maven2/ao/oss/web-framework-javaee/book/src/main/resources-filtered/META-INF/resources/web-framework">
     <parent book="/" page="/web-development.jspx" />
   </book>
   <book name="/web-resources" cvsworkDirectory="~/maven2/ao/oss/web-resources/book/src/main/resources-filtered/META-INF/resources/web-resources">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/web-resources/optimizer" cvsworkDirectory="~/maven2/ao/oss/web-resources/optimizer/book/src/main/resources-filtered/META-INF/resources/web-resources/optimizer">
+  <book name="/web-resources/optimizer" cvsworkDirectory="~/maven2/ao/oss/web-resources/optimizer-javaee/book/src/main/resources-filtered/META-INF/resources/web-resources/optimizer">
     <parent book="/web-resources" page="/index.jspx" shortTitle="Optimizer" />
   </book>
   <book name="/web-resources/registry" cvsworkDirectory="~/maven2/ao/oss/web-resources/registry/book/src/main/resources-filtered/META-INF/resources/web-resources/registry">
     <parent book="/web-resources" page="/index.jspx" shortTitle="Registry" />
   </book>
-  <book name="/web-resources/renderer" cvsworkDirectory="~/maven2/ao/oss/web-resources/renderer/book/src/main/resources-filtered/META-INF/resources/web-resources/renderer">
+  <book name="/web-resources/renderer" cvsworkDirectory="~/maven2/ao/oss/web-resources/renderer-javaee/book/src/main/resources-filtered/META-INF/resources/web-resources/renderer">
     <parent book="/web-resources" page="/index.jspx" shortTitle="Renderer" />
   </book>
-  <book name="/web-resources/servlet" cvsworkDirectory="~/maven2/ao/oss/web-resources/servlet/book/src/main/resources-filtered/META-INF/resources/web-resources/servlet">
+  <book name="/web-resources/servlet" cvsworkDirectory="~/maven2/ao/oss/web-resources/servlet-javaee/book/src/main/resources-filtered/META-INF/resources/web-resources/servlet">
     <parent book="/web-resources" page="/index.jspx" shortTitle="Servlet" />
   </book>
-  <book name="/web-resources/taglib" cvsworkDirectory="~/maven2/ao/oss/web-resources/taglib/book/src/main/resources-filtered/META-INF/resources/web-resources/taglib">
+  <book name="/web-resources/taglib" cvsworkDirectory="~/maven2/ao/oss/web-resources/taglib-javaee/book/src/main/resources-filtered/META-INF/resources/web-resources/taglib">
     <parent book="/web-resources" page="/index.jspx" shortTitle="Taglib" />
   </book>
 </books>
