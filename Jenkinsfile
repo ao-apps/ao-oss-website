@@ -197,7 +197,7 @@ def upstreamProjects = [
   'messaging/tcp-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book</artifactId>
   'messaging/tcp-client-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId>
   'messaging/tcp-server-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId>
-  'mime-mappings-book', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
+  'mime-mappings-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
   'net-partial-url-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
   'net-partial-url-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
   'net-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
@@ -256,7 +256,7 @@ def upstreamProjects = [
   '../semanticcms-1.x/section/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
 
   // Runtime Direct
-  'mime-mappings', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId>
+  'mime-mappings-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId>
   'servlet-filter-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId>
   '../semanticcms-1.x/google-analytics', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId>
   '../semanticcms-1.x/theme-documentation', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>

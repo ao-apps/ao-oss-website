@@ -189,7 +189,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/messaging/tcp/server" cvsworkDirectory="~/maven2/ao/oss/messaging/tcp-server/book/src/main/resources-filtered/META-INF/resources/messaging/tcp/server">
     <parent book="/messaging/tcp" page="/index.jspx" shortTitle="Server" />
   </book>
-  <book name="/mime-mappings" cvsworkDirectory="~/maven2/ao/oss/mime-mappings/book/src/main/resources-filtered/META-INF/resources/mime-mappings">
+  <book name="/mime-mappings" cvsworkDirectory="~/maven2/ao/oss/mime-mappings-javaee/book/src/main/resources-filtered/META-INF/resources/mime-mappings">
     <parent book="/" page="/web-development.jspx" />
   </book>
   <book name="/net-partial-url" cvsworkDirectory="~/maven2/ao/oss/net-partial-url/book/src/main/resources-filtered/META-INF/resources/net-partial-url">
