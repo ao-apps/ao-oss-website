@@ -51,7 +51,7 @@ def upstreamProjects = [
   'appcluster/dnsonly', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly</artifactId><classifier>javadoc</classifier>
   'appcluster/imap', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap</artifactId><classifier>javadoc</classifier>
   'appcluster/jdbc', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc</artifactId><classifier>javadoc</classifier>
-  'badges-1.x', // <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><classifier>javadoc</classifier>
+  'badges-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-cdn</artifactId><classifier>javadoc</classifier>
   'cdn/data', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data</artifactId><classifier>javadoc</classifier>
   'cdn/servlet-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet</artifactId><classifier>javadoc</classifier>
@@ -155,7 +155,7 @@ def upstreamProjects = [
   'appcluster/dnsonly-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly-book</artifactId>
   'appcluster/imap-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book</artifactId>
   'appcluster/jdbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book</artifactId>
-  'badges-1.x-book', // <groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
+  'badges-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
   'cdn/book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-book</artifactId>
   'cdn/data-book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data-book</artifactId>
   'cdn/servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet-book</artifactId>
