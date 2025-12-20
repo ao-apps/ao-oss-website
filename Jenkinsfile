@@ -142,7 +142,7 @@ def upstreamProjects = [
   'web-resources/renderer', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><classifier>javadoc</classifier>
   'web-resources/servlet', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><classifier>javadoc</classifier>
   'web-resources/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier>
-  // No apidocs: <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId><classifier>javadoc</classifier>
+  // No apidocs: <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId><classifier>javadoc</classifier>
 
   // Direct
@@ -248,7 +248,7 @@ def upstreamProjects = [
   'web-resources/renderer-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
   'web-resources/servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
   'web-resources/taglib-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
-  'javaee-web-api-bom-book', // <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
+  'jakartaee-web-profile-bom-book', // <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId>
   // No Jenkins: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
   'pgp-keys-map-book', // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
   '../semanticcms-2.x/core/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>

@@ -147,7 +147,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/javadoc-resources" cvsworkDirectory="~/maven2/ao/oss/javadoc-resources/book/src/main/resources-filtered/META-INF/resources/javadoc-resources">
     <parent book="/" page="/maven.jspx" />
   </book>
-  <book name="/jakartaee-web-profile-bom" cvsworkDirectory="~/maven2/ao/oss/javaee-web-api-bom/book/src/main/resources-filtered/META-INF/resources/jakartaee-web-profile-bom">
+  <book name="/jakartaee-web-profile-bom" cvsworkDirectory="~/maven2/ao/oss/jakartaee-web-profile-bom/book/src/main/resources-filtered/META-INF/resources/jakartaee-web-profile-bom">
     <parent book="/" page="/maven.jspx" />
     <parent book="/" page="/web-development.jspx" />
   </book>

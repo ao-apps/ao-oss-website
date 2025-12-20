@@ -124,7 +124,7 @@ module com.aoapps.oss.website {
   requires com.aoapps.web.resources.renderer.book; // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
   requires com.aoapps.web.resources.servlet.book; // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
   requires com.aoapps.web.resources.taglib.book; // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
-  requires com.aoapps.javaee.webapi.bom.book; // <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
+  requires com.aoapps.jakartaee.webprofile.bom.book; // <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId>
   requires javax.servlet.api; // <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
   requires com.aoapps.pgp.keys.map.book; // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
   requires com.semanticcms.core.all; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
