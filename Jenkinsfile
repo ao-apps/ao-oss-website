@@ -146,76 +146,76 @@ def upstreamProjects = [
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>pgp-keys-map</artifactId><classifier>javadoc</classifier>
 
   // Direct
-  'ant-tasks-book', // <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks-book</artifactId>
-  'appcluster/all-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book</artifactId>
-  'appcluster/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book</artifactId>
-  'appcluster/book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-book</artifactId>
-  'appcluster/core-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-core-book</artifactId>
-  'appcluster/csync2-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2-book</artifactId>
-  'appcluster/dnsonly-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly-book</artifactId>
-  'appcluster/imap-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book</artifactId>
-  'appcluster/jdbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book</artifactId>
+  'ant-tasks-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-ant-tasks-book-javaee</artifactId>
+  'appcluster/all-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-all-book-javaee</artifactId>
+  'appcluster/bom-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-bom-book-javaee</artifactId>
+  'appcluster/book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-book-javaee</artifactId>
+  'appcluster/core-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-core-book-javaee</artifactId>
+  'appcluster/csync2-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-csync2-book-javaee</artifactId>
+  'appcluster/dnsonly-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-dnsonly-book-javaee</artifactId>
+  'appcluster/imap-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-imap-book-javaee</artifactId>
+  'appcluster/jdbc-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-appcluster-jdbc-book-javaee</artifactId>
   'badges-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-badges-book</artifactId>
-  'cdn/book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-book</artifactId>
-  'cdn/data-book', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data-book</artifactId>
+  'cdn/book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-book-javaee</artifactId>
+  'cdn/data-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-data-book-javaee</artifactId>
   'cdn/servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-servlet-book</artifactId>
   'cdn/webapp-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cdn-webapp-book</artifactId>
-  'checkstyle-config-book', // <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config-book</artifactId>
-  'collections-book', // <groupId>com.aoapps</groupId><artifactId>ao-collections-book</artifactId>
-  'collections-transformers-book', // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book</artifactId>
-  'concurrent-book', // <groupId>com.aoapps</groupId><artifactId>ao-concurrent-book</artifactId>
-  'cron-book', // <groupId>com.aoapps</groupId><artifactId>ao-cron-book</artifactId>
-  'dao/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-dao-api-book</artifactId>
-  'dao/base-book', // <groupId>com.aoapps</groupId><artifactId>ao-dao-base-book</artifactId>
-  'dao/book', // <groupId>com.aoapps</groupId><artifactId>ao-dao-book</artifactId>
-  'dao/dbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-dao-dbc-book</artifactId>
-  'dbc-book', // <groupId>com.aoapps</groupId><artifactId>ao-dbc-book</artifactId>
-  'encoding-book', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-book</artifactId>
+  'checkstyle-config-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-checkstyle-config-book-javaee</artifactId>
+  'collections-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-collections-book-javaee</artifactId>
+  'collections-transformers-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-collections-transformers-book-javaee</artifactId>
+  'concurrent-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-concurrent-book-javaee</artifactId>
+  'cron-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-cron-book-javaee</artifactId>
+  'dao/api-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-dao-api-book-javaee</artifactId>
+  'dao/base-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-dao-base-book-javaee</artifactId>
+  'dao/book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-dao-book-javaee</artifactId>
+  'dao/dbc-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-dao-dbc-book-javaee</artifactId>
+  'dbc-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-dbc-book-javaee</artifactId>
+  'encoding-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-book-javaee</artifactId>
   'encoding-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet-book</artifactId>
   'encoding-taglib-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib-book</artifactId>
   'error-pages-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-error-pages-book</artifactId>
-  'fluent-html-any-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book</artifactId>
-  'fluent-html-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book</artifactId>
+  'fluent-html-any-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any-book-javaee</artifactId>
+  'fluent-html-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-book-javaee</artifactId>
   'fluent-html-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet-book</artifactId>
-  'fluent-html-util-book', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book</artifactId>
-  'hodgepodge-book', // <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book</artifactId>
-  'io-buffer-book', // <groupId>com.aoapps</groupId><artifactId>ao-io-buffer-book</artifactId>
-  'io-filesystems-book', // <groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-book</artifactId>
-  'io-filesystems-posix-book', // <groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book</artifactId>
-  'io-posix-book', // <groupId>com.aoapps</groupId><artifactId>ao-io-posix-book</artifactId>
-  'javadoc-offline-book', // <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline-book</artifactId>
-  'javadoc-resources-book', // <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book</artifactId>
-  'lang-book', // <groupId>com.aoapps</groupId><artifactId>ao-lang-book</artifactId>
-  'messaging/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book</artifactId>
-  'messaging/base-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-base-book</artifactId>
-  'messaging/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book</artifactId>
-  'messaging/book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-book</artifactId>
-  'messaging/http-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book</artifactId>
-  'messaging/http-client-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-book</artifactId>
-  'messaging/http-client-js-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js-book</artifactId>
+  'fluent-html-util-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util-book-javaee</artifactId>
+  'hodgepodge-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge-book-javaee</artifactId>
+  'io-buffer-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-io-buffer-book-javaee</artifactId>
+  'io-filesystems-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-book-javaee</artifactId>
+  'io-filesystems-posix-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-io-filesystems-posix-book-javaee</artifactId>
+  'io-posix-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-io-posix-book-javaee</artifactId>
+  'javadoc-offline-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline-book-javaee</artifactId>
+  'javadoc-resources-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-javadoc-resources-book-javaee</artifactId>
+  'lang-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-lang-book-javaee</artifactId>
+  'messaging/api-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-api-book-javaee</artifactId>
+  'messaging/base-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-base-book-javaee</artifactId>
+  'messaging/bom-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-bom-book-javaee</artifactId>
+  'messaging/book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-book-javaee</artifactId>
+  'messaging/http-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-book-javaee</artifactId>
+  'messaging/http-client-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-client-book-javaee</artifactId>
+  'messaging/http-client-js-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-client-js-book-javaee</artifactId>
   'messaging/http-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-http-servlet-book</artifactId>
-  'messaging/tcp-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book</artifactId>
-  'messaging/tcp-client-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId>
-  'messaging/tcp-server-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId>
+  'messaging/tcp-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-book-javaee</artifactId>
+  'messaging/tcp-client-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book-javaee</artifactId>
+  'messaging/tcp-server-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book-javaee</artifactId>
   'mime-mappings-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
-  'net-partial-url-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
+  'net-partial-url-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book-javaee</artifactId>
   'net-partial-url-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
-  'net-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
+  'net-path-space-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book-javaee</artifactId>
   'net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
-  'net-types-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
-  'book', // <groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId>
-  'parent-book', // <groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId>
-  'payments/all-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-all-book</artifactId>
-  'payments/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-api-book</artifactId>
-  'payments/authorizeNet-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet-book</artifactId>
-  'payments/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-bom-book</artifactId>
-  'payments/book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-book</artifactId>
-  'payments/payflowPro-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro-book</artifactId>
-  'payments/stripe-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-stripe-book</artifactId>
-  'payments/test-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-test-book</artifactId>
-  'payments/usaepay-book', // <groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay-book</artifactId>
-  'persistence-book', // <groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId>
-  'security-book', // <groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId>
+  'net-types-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-net-types-book-javaee</artifactId>
+  'book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-oss-book-javaee</artifactId>
+  'parent-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book-javaee</artifactId>
+  'payments/all-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-all-book-javaee</artifactId>
+  'payments/api-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-api-book-javaee</artifactId>
+  'payments/authorizeNet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-authorizeNet-book-javaee</artifactId>
+  'payments/bom-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-bom-book-javaee</artifactId>
+  'payments/book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-book-javaee</artifactId>
+  'payments/payflowPro-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-payflowPro-book-javaee</artifactId>
+  'payments/stripe-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-stripe-book-javaee</artifactId>
+  'payments/test-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-test-book-javaee</artifactId>
+  'payments/usaepay-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-payments-usaepay-book-javaee</artifactId>
+  'persistence-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-persistence-book-javaee</artifactId>
+  'security-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-security-book-javaee</artifactId>
   'servlet-filter-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
   'servlet-firewall-javaee/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
   'servlet-firewall-javaee/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
@@ -230,27 +230,27 @@ def upstreamProjects = [
   'servlet-subrequest-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
   'servlet-util-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
   'servlet-util-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util-book</artifactId>
-  'sql-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-book</artifactId>
-  'sql-failfast-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book</artifactId>
-  'sql-pool-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book</artifactId>
-  'sql-tracker-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-tracker-book</artifactId>
-  'sql-wrapper-book', // <groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper-book</artifactId>
+  'sql-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-sql-book-javaee</artifactId>
+  'sql-failfast-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-sql-failfast-book-javaee</artifactId>
+  'sql-pool-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-sql-pool-book-javaee</artifactId>
+  'sql-tracker-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-sql-tracker-book-javaee</artifactId>
+  'sql-wrapper-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-sql-wrapper-book-javaee</artifactId>
   'style-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-style-book</artifactId>
   'taglib-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-taglib-book</artifactId>
-  'tempfiles-book', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-book</artifactId>
+  'tempfiles-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-book-javaee</artifactId>
   'tempfiles-servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet-book</artifactId>
-  'tld-parser-book', // <groupId>com.aoapps</groupId><artifactId>ao-tld-parser-book</artifactId>
-  'tlds-book', // <groupId>com.aoapps</groupId><artifactId>ao-tlds-book</artifactId>
+  'tld-parser-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-tld-parser-book-javaee</artifactId>
+  'tlds-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-tlds-book-javaee</artifactId>
   'web-framework-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-framework-book</artifactId>
-  'web-resources/book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-book</artifactId>
+  'web-resources/book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-book-javaee</artifactId>
   'web-resources/optimizer-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-optimizer-book</artifactId>
-  'web-resources/registry-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book</artifactId>
+  'web-resources/registry-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry-book-javaee</artifactId>
   'web-resources/renderer-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
   'web-resources/servlet-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
   'web-resources/taglib-book-javaee', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
   'javaee-web-api-bom-book', // <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom-book</artifactId>
   // No Jenkins: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
-  'pgp-keys-map-book', // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
+  'pgp-keys-map-book-javaee', // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book-javaee</artifactId>
   '../semanticcms-1.x/core/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
   '../semanticcms-1.x/news/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
   '../semanticcms-1.x/section/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
