@@ -38,6 +38,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <module.name>com.aoapps.oss.website</module.name>
     <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://oss.aoapps.com/">AO OSS</a>
 / <a target="${javadoc.target}" href="${project.url}">Website</a>]]></javadoc.breadcrumbs>
+    <!-- Java 17 -->
+    <javase.version>17</javase.version>
+    <javase.release>17</javase.release>
 
     <!-- The Google Analytics 4 (GA4) Measurement ID for this site. -->
     <google.analytics.trackingId>G-RYD4Z0W4YW</google.analytics.trackingId>
