@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ao-oss-website - The oss.aoapps.com website.
-Copyright (C) 2021, 2022, 2023, 2024, 2025  AO Industries, Inc.
+Copyright (C) 2021, 2022, 2023, 2024, 2025, 2026  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -41,6 +41,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Java 17 -->
     <javase.version>17</javase.version>
     <javase.release>17</javase.release>
+    <!-- Jakarta EE 10 -->
+    <javaee.version>10</javaee.version>
+    <javadoc.link.javaee>${javadoc.link.jakartaee.10}</javadoc.link.javaee>
 
     <!-- The Google Analytics 4 (GA4) Measurement ID for this site. -->
     <google.analytics.trackingId>G-RYD4Z0W4YW</google.analytics.trackingId>
@@ -172,30 +175,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 
   <profiles>
     <profile>
-      <id>audit-dependencies</id>
-      <activation>
-        <property><name>ossindex.skip</name><value>!true</value></property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.sonatype.ossindex.maven</groupId><artifactId>ossindex-maven-plugin</artifactId>
-            <configuration>
-              <excludeVulnerabilityIds>
-                <!--
-                  Exclude sonatype-2020-0243: https://github.com/JodaOrg/joda-time-jsptags/pull/2
-                  This is already mitigated by our PGP verification of all downloaded artifacts.
-                  Plus, we always directly declare all transitive dependencies.
-                  TODO: Remove in joda-time:joda-time-jsptags > 1.1.1
-                -->
-                <exclude>sonatype-2020-0243</exclude>
-              </excludeVulnerabilityIds>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
       <id>offlineLinks</id><activation><file><exists>src/main/java</exists></file></activation>
       <build>
         <plugins>
@@ -217,7 +196,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                       <includes>element-list, package-list</includes>
                       <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</outputDirectory>
                     </artifactItem>
-                    <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+                    <!-- ao-javadoc-offline: <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId><classifier>javadoc</classifier> -->
                   </artifactItems>
                 </configuration>
               </execution>
@@ -236,7 +215,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                   <url>https://oss.aoapps.com/servlet-util/apidocs/</url>
                   <location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</location>
                 </offlineLink>
-                <!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+                <!-- ao-javadoc-offline: <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId><classifier>javadoc</classifier> -->
               </offlineLinks>
             </configuration>
           </plugin>
@@ -1629,11 +1608,11 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId><version>0.7.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId><version>10.0.0-SNAPSHOT</version>
+        <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId><version>6.0.0</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.1.0</version>
-        <scope>provided</scope>
+        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId><version>10.0.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.14.0-SNAPSHOT</version>
@@ -1718,13 +1697,14 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.20.0</version>
       </dependency>
       <dependency>
-        <groupId>javax.el</groupId><artifactId>javax.el-api</artifactId><version>3.0.0</version>
+        <groupId>jakarta.el</groupId><artifactId>jakarta.el-api</artifactId><version>5.0.1</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><version>2.3.3</version>
+        <groupId>jakarta.servlet.jsp</groupId><artifactId>jakarta.servlet.jsp-api</artifactId><version>3.1.1</version>
         <scope>provided</scope>
       </dependency>
+      <!-- jakartaee-web-profile-bom: <groupId>jakarta.servlet.jsp.jstl</groupId><artifactId>jakarta.servlet.jsp.jstl-api</artifactId> -->
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
@@ -1758,7 +1738,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
-      <!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
       <!-- Runtime Direct -->
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -1797,8 +1776,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <dependency>
         <groupId>org.webjars.npm</groupId><artifactId>graphlib</artifactId><version>2.1.8</version>
       </dependency>
+      <!-- jakartaee-web-profile-bom: <groupId>org.glassfish.web</groupId><artifactId>jakarta.servlet.jsp.jstl</artifactId> -->
       <dependency>
-        <groupId>joda-time</groupId><artifactId>joda-time-jsptags</artifactId><version>1.1.1</version>
+        <groupId>net.sargue</groupId><artifactId>java-time-jsptags</artifactId><version>2.0.2</version>
       </dependency>
       <dependency>
         <groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
@@ -1848,10 +1828,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
-      <!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
       <!-- Imports -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom</artifactId><version>10.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -2167,10 +2146,10 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId>
+      <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
+      <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId>
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>

@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 /*
  * ao-oss-website - The oss.aoapps.com website.
- * Copyright (C) 2021, 2022, 2023, 2024, 2025  AO Industries, Inc.
+ * Copyright (C) 2021, 2022, 2023, 2024, 2025, 2026  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -248,8 +248,8 @@ def upstreamProjects = [
   'web-resources/renderer-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer-book</artifactId>
   'web-resources/servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet-book</artifactId>
   'web-resources/taglib-book', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib-book</artifactId>
+  // No Jenkins: <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId>
   'jakartaee-web-profile-bom-book', // <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId>
-  // No Jenkins: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
   'pgp-keys-map-book', // <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId>
   '../semanticcms-2.x/core/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
   '../semanticcms-2.x/news/all', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
@@ -262,7 +262,7 @@ def upstreamProjects = [
   '../semanticcms-2.x/theme-documentation', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>
 
   // BOM
-  'javaee-web-api-bom', // <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId>
+  'jakartaee-web-profile-bom', // <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom</artifactId>
 ]
 
 // Java 17
