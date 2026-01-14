@@ -143,10 +143,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
             <!-- Books -->
             <dependency>com.aoapps:*-book:jar</dependency>
           </ignoredUnusedDeclaredDependencies>
-          <ignoredDependencies>
-            <!-- No "module-info.java" in some release builds -->
-            <dependency>com.aoapps:ao-fluent-html-any</dependency>
-          </ignoredDependencies>
         </configuration>
       </plugin>
       <plugin>
