@@ -56,6 +56,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Default publish settings -->
     <publish.tomcat7-maven-plugin.parallel.deployment.version>${user.name}-${current.datetime}</publish.tomcat7-maven-plugin.parallel.deployment.version>
     <publish-oss.aoapps.com-GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish-oss.aoapps.com-GetParallelDeploymentVersion-url>
+    <publish-oss.aoapps.com-GetWarFileFingerprint-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish-oss.aoapps.com-GetWarFileFingerprint-url>
     <publish-oss.aoapps.com-warmup-get-url>https://oss.aoapps.com/</publish-oss.aoapps.com-warmup-get-url>
     <publish-oss.aoapps.com-warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish-oss.aoapps.com-warmup-get-url.2>
     <publish-oss.aoapps.com-warmup-get-url.3>https://oss.aoapps.com/?view=news</publish-oss.aoapps.com-warmup-get-url.3>
@@ -846,6 +847,31 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                         <fail
                           message="Parallel deployment version mismatch.  Expected ${publish.tomcat7-maven-plugin.parallel.deployment.version}, got ${parallel-deployment-version}."
                           unless="parallel-deployment-version.matches"
+                        />
+                      </sequential>
+                    </retry>
+                  </target>
+                </configuration>
+              </execution>
+              <execution>
+                <id>verify-war-file-fingerprint</id><phase>deploy</phase><goals><goal>run</goal></goals>
+                <configuration>
+                  <target>
+                    <!-- Compute the expected MD5 fingerprint -->
+                    <checksum file="${project.build.directory}/${project.build.finalName}.war" property="expected-war-file-fingerprint"/>
+                    <!-- Download and verify matches -->
+                    <mkdir dir="${project.build.directory}/verify-war-file-fingerprint" />
+                    <retry retrycount="12" retrydelay="15000">
+                      <sequential>
+                        <local name="war-file-fingerprint" />
+                        <get retries="1" src="${publish-oss.aoapps.com-GetWarFileFingerprint-url}" dest="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint" maxtime="120" httpusecaches="false" />
+                        <loadfile property="war-file-fingerprint" srcFile="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint" />
+                        <condition property="war-file-fingerprint.matches">
+                          <equals arg1="${war-file-fingerprint}" arg2="${expected-war-file-fingerprint}" />
+                        </condition>
+                        <fail
+                          message="WAR file MD5 fingerprint mismatch.  Expected ${expected-war-file-fingerprint}, got ${war-file-fingerprint}."
+                          unless="war-file-fingerprint.matches"
                         />
                       </sequential>
                     </retry>
