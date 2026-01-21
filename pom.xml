@@ -252,22 +252,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <build>
         <plugins>
           <plugin>
-            <groupId>org.codehaus.gmaven</groupId><artifactId>groovy-maven-plugin</artifactId>
-            <executions>
-              <!-- See https://stackoverflow.com/a/11239913 -->
-              <execution>
-                <id>get-tomcatManager-auth-from-settings</id><phase>validate</phase><goals><goal>execute</goal></goals>
-                <configuration>
-                  <source>
-                    def server = settings.servers.find{ it.id.equals("${publish.tomcat7-maven-plugin.server}") }
-                    project.properties.tomcatManagerUsername = server.username
-                    project.properties.tomcatManagerPassword = server.password
-                  </source>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
             <executions>
               <!-- Unpack all javadoc JARs in preparation for packaging as javadoc-webresources -->
@@ -908,8 +892,8 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                     <mkdir dir="${project.build.directory}/publish.tomcat7-maven-plugin" />
                     <get
                       retries="4"
-                      username="${tomcatManagerUsername}"
-                      password="${tomcatManagerPassword}"
+                      username="${publish.tomcat7-maven-plugin.server.username}"
+                      password="${publish.tomcat7-maven-plugin.server.password}"
                       src="${publish-oss.aoapps.com-GetWarFileFingerprint-url}"
                       dest="${project.build.directory}/publish.tomcat7-maven-plugin/running-war-file-fingerprint"
                       maxtime="20"
@@ -958,8 +942,8 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                         <local name="parallel-deployment-version" />
                         <get
                           retries="1"
-                          username="${tomcatManagerUsername}"
-                          password="${tomcatManagerPassword}"
+                          username="${publish.tomcat7-maven-plugin.server.username}"
+                          password="${publish.tomcat7-maven-plugin.server.password}"
                           src="${publish-oss.aoapps.com-GetParallelDeploymentVersion-url}"
                           dest="${project.build.directory}/verify-parallel-deployment-version/GetParallelDeploymentVersion"
                           maxtime="120"
@@ -991,8 +975,8 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                         <local name="published-war-file-fingerprint" />
                         <get
                           retries="1"
-                          username="${tomcatManagerUsername}"
-                          password="${tomcatManagerPassword}"
+                          username="${publish.tomcat7-maven-plugin.server.username}"
+                          password="${publish.tomcat7-maven-plugin.server.password}"
                           src="${publish-oss.aoapps.com-GetWarFileFingerprint-url}"
                           dest="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint"
                           maxtime="120"
