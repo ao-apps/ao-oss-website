@@ -54,15 +54,15 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Require secure session cookies in production -->
     <session.cookie.secure>true</session.cookie.secure>
     <!-- Default publish settings -->
-    <publish.tomcat7-maven-plugin.parallel.deployment.version>${current.datetime}-${user.name}</publish.tomcat7-maven-plugin.parallel.deployment.version>
+    <publish.tomcat7-maven-plugin.server>tomcat7-maven-plugin-oss.aoapps.com</publish.tomcat7-maven-plugin.server>
+    <publish.tomcat7-maven-plugin.path>/ROOT</publish.tomcat7-maven-plugin.path>
+    <publish.tomcat7-maven-plugin.url>${tomcat7-maven-plugin-oss.aoapps.com}</publish.tomcat7-maven-plugin.url>
+
     <publish-oss.aoapps.com-GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish-oss.aoapps.com-GetParallelDeploymentVersion-url>
     <publish-oss.aoapps.com-GetWarFileFingerprint-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish-oss.aoapps.com-GetWarFileFingerprint-url>
     <publish-oss.aoapps.com-warmup-get-url>https://oss.aoapps.com/</publish-oss.aoapps.com-warmup-get-url>
     <publish-oss.aoapps.com-warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish-oss.aoapps.com-warmup-get-url.2>
     <publish-oss.aoapps.com-warmup-get-url.3>https://oss.aoapps.com/?view=news</publish-oss.aoapps.com-warmup-get-url.3>
-
-    <!-- Plugins -->
-    <org.codehaus.gmaven.groovy-maven-plugin.version>2.1.1</org.codehaus.gmaven.groovy-maven-plugin.version>
   </properties>
 
   <name>oss.aoapps.com</name>
@@ -133,20 +133,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId><artifactId>build-helper-maven-plugin</artifactId>
-        <executions>
-          <!-- Make the components of the current version available as parsedVersion.* properties -->
-          <execution>
-            <id>current.datetime</id><goals><goal>timestamp-property</goal></goals>
-            <configuration>
-              <name>current.datetime</name>
-              <locale>en_US</locale>
-              <pattern>yyyyMMdd-HHmmss</pattern>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
         <configuration>
@@ -262,25 +248,18 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       </dependencies>
     </profile>
     <profile>
-      <id>jenkins</id>
-      <properties>
-        <!-- Include Jenkins build number -->
-        <publish.tomcat7-maven-plugin.parallel.deployment.version>${current.datetime}-${user.name}-build-${jenkins.buildNumber}</publish.tomcat7-maven-plugin.parallel.deployment.version>
-      </properties>
-    </profile>
-    <profile>
       <id>publish</id>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.codehaus.gmaven</groupId><artifactId>groovy-maven-plugin</artifactId><version>${org.codehaus.gmaven.groovy-maven-plugin.version}</version>
+            <groupId>org.codehaus.gmaven</groupId><artifactId>groovy-maven-plugin</artifactId>
             <executions>
               <!-- See https://stackoverflow.com/a/11239913 -->
               <execution>
                 <id>get-tomcatManager-auth-from-settings</id><phase>validate</phase><goals><goal>execute</goal></goals>
                 <configuration>
                   <source>
-                    def server = settings.servers.find{ it.id.equals('tomcat7-maven-plugin-oss.aoapps.com') }
+                    def server = settings.servers.find{ it.id.equals("${publish.tomcat7-maven-plugin.server}") }
                     project.properties.tomcatManagerUsername = server.username
                     project.properties.tomcatManagerPassword = server.password
                   </source>
@@ -659,19 +638,44 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
             </configuration>
           </plugin>
           <plugin>
-            <groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
+            <groupId>org.codehaus.mojo</groupId><artifactId>exec-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>publish</id><phase>deploy</phase><goals><goal>deploy-only</goal></goals>
+                <id>conditional-tomcat7-deploy-only</id><phase>deploy</phase><goals><goal>exec</goal></goals>
                 <configuration>
-                  <charset>UTF-8</charset>
-                  <server>tomcat7-maven-plugin-oss.aoapps.com</server>
-                  <!-- Parallel deployment -->
-                  <!-- Note: Tomcat server.xml/Host/autoDeploy must be set to "true" -->
-                  <!-- Note: Tomcat server.xml/Host/undeployOldVersions must be set to "true" to clean-up old versions -->
-                  <path>/ROOT##${publish.tomcat7-maven-plugin.parallel.deployment.version}</path>
-                  <update>false</update>
-                  <url>${tomcat7-maven-plugin-oss.aoapps.com}</url>
+                  <skip>${running-war-file.matches}</skip>
+                  <executable>mvn</executable>
+                  <!-- -B made colors not work -->
+                  <commandlineArgs>
+                    --quiet
+                    -N
+                    -P${capture-maven-context.activeProfiles}
+                    ${capture-maven-context.additionalArguments}
+                    tomcat7:deploy-only@publish.tomcat7-maven-plugin.deploy-only
+                  </commandlineArgs>
+                  <environmentVariables>
+                    <JAVA_HOME>${env.JAVA_HOME}</JAVA_HOME>
+                    <MAVEN_OPTS>${env.MAVEN_OPTS}</MAVEN_OPTS>
+                    <!-- Seen in Jenkins builds -->
+                    <!-- TODO: Review set -e inside Jenkinsfile for if any more that we should include -->
+                    <!-- <JAVA_TOOL_OPTIONS>${env.JAVA_TOOL_OPTIONS}</JAVA_TOOL_OPTIONS> -->
+                  </environmentVariables>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId><artifactId>properties-maven-plugin</artifactId>
+            <executions>
+              <!-- Reads the properties created by capture-maven-context and existing-war-file-fingerprints below. -->
+              <execution>
+                <!-- install phase to be just after existing-war-file-fingerprints and just before deploy -->
+                <id>read-existing-war-file-fingerprints-properties</id><phase>install</phase><goals><goal>read-project-properties</goal></goals>
+                <configuration>
+                  <files>
+                    <file>${project.build.directory}/capture-maven-context.properties</file>
+                    <file>${project.build.directory}/existing-war-file-fingerprints.properties</file>
+                  </files>
                 </configuration>
               </execution>
             </executions>
@@ -679,6 +683,61 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
           <plugin>
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
             <executions>
+              <execution>
+                <id>capture-maven-context</id><phase>initialize</phase><goals><goal>run</goal></goals>
+                <configuration>
+                  <target>
+                    <!-- Load Groovy support -->
+                    <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy"/>
+
+                    <!-- Groovy block to iterate all user-defined properties -->
+                    <groovy><![CDATA[
+                      def mavenProject = project.references['maven.project']
+                      assert mavenProject != null
+
+                      def out = new File("${project.build.directory}/capture-maven-context.properties")
+                      out.text = '' // overwrite
+
+                      // Explicit whitelist of user properties to forward
+                      def whitelist = [
+                        // Used in parallel deployment version
+                        'current.datetime',    
+                        'jenkins.buildNumber',
+                        // Seen in Jenkins builds
+                        'style.color',
+                        // 'maven.ext.class.path',
+                        // 'org.jenkinsci.plugins.pipeline.maven.reportsFolder',
+                      ]
+
+                      out << "capture-maven-context.additionalArguments="
+                      // Maintain debug flag
+                      def needSpace = false
+                      if (Boolean.getBoolean(System.getProperty("maven.debug"))) {
+                        out << "-X\n"
+                        needSpace = true
+                      }
+                      whitelist.each { name ->
+                        if (mavenProject.properties.containsKey(name)) {
+                          def value = mavenProject.properties[name]
+                          if (needSpace) {
+                            out << " "
+                          }
+                          out << "-D" + name;
+                          if (value != null && !value.toString().isEmpty()) {
+                            out << "=" + value
+                          }
+                          needSpace = true
+                        }
+                      }
+                      out << "\n"
+
+                      // Active profiles
+                      def profiles = mavenProject.activeProfiles*.id
+                      out << "capture-maven-context.activeProfiles=" + profiles.join(",") + "\n"
+                    ]]></groovy>
+                  </target>
+                </configuration>
+              </execution>
               <execution>
                 <id>create-javadoc-webresources</id><phase>generate-resources</phase><goals><goal>run</goal></goals>
                 <configuration>
@@ -837,8 +896,51 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 </configuration>
               </execution>
               <execution>
+                <!-- verify phase to be just before read-existing-war-file-fingerprints-properties -->
+                <id>existing-war-file-fingerprints</id><phase>verify</phase><goals><goal>run</goal></goals>
+                <configuration>
+                  <target xmlns:if="ant:if" xmlns:unless="ant:unless">
+                    <!-- Compute the expected MD5 fingerprint -->
+                    <checksum file="${project.build.directory}/${project.build.finalName}.war" property="build-war-file-fingerprint" />
+                    <echo level="debug" message="build-war-file-fingerprint = ${build-war-file-fingerprint}" />
+                    <!-- Download the current fingerprint running on the server -->
+                    <mkdir dir="${project.build.directory}/running-war-file-fingerprint" />
+                    <get
+                      retries="4"
+                      username="${tomcatManagerUsername}"
+                      password="${tomcatManagerPassword}"
+                      src="${publish-oss.aoapps.com-GetWarFileFingerprint-url}"
+                      dest="${project.build.directory}/running-war-file-fingerprint/GetWarFileFingerprint"
+                      maxtime="20"
+                      httpusecaches="false"
+                      ignoreerrors="true"
+                    />
+                    <available file="${project.build.directory}/running-war-file-fingerprint/GetWarFileFingerprint" property="GetWarFileFingerprint.exists" />
+                    <loadfile if:set="GetWarFileFingerprint.exists" property="running-war-file-fingerprint"
+                              srcFile="${project.build.directory}/running-war-file-fingerprint/GetWarFileFingerprint" />
+                    <echo unless:set="running-war-file-fingerprint" level="warning" message="Unable to determine running fingerprint.  Check logfiles for info messages from &lt;get&gt;." />
+                    <property name="running-war-file-fingerprint" value="UNKNOWN" />
+                    <echo level="debug" message="running-war-file-fingerprint = ${running-war-file-fingerprint}" />
+                    <!-- Set as property to true/false based on if this matches the expected fingerprint -->
+                    <condition property="running-war-file.matches" value="true" else="false">
+                      <equals arg1="${running-war-file-fingerprint}" arg2="${build-war-file-fingerprint}" />
+                    </condition>
+                    <echo level="debug" message="running-war-file.matches = ${running-war-file.matches}" />
+                    <echo level="info" if:true="${running-war-file.matches}" message="Tomcat deployment will be skipped because new build matches running fingerprint: ${running-war-file-fingerprint}" />
+                    <echo level="info" unless:true="${running-war-file.matches}" message="Tomcat deployment will proceed because new build does not match running fingerprint: build = ${build-war-file-fingerprint}, running = ${running-war-file-fingerprint}" />
+                    <!-- Save properties for Maven to read -->
+                    <echo file="${project.build.directory}/existing-war-file-fingerprints.properties"><!--
+                      -->build-war-file-fingerprint=${build-war-file-fingerprint}${line.separator}<!--
+                      -->running-war-file-fingerprint=${running-war-file-fingerprint}${line.separator}<!--
+                      -->running-war-file.matches=${running-war-file.matches}${line.separator}<!--
+                    --></echo>
+                  </target>
+                </configuration>
+              </execution>
+              <execution>
                 <id>warmup-sleep</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
+                  <skip>${running-war-file.matches}</skip>
                   <target>
                     <sleep seconds="10" />
                   </target>
@@ -847,6 +949,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
               <execution>
                 <id>verify-parallel-deployment-version</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
+                  <skip>${running-war-file.matches}</skip>
                   <target>
                     <mkdir dir="${project.build.directory}/verify-parallel-deployment-version" />
                     <retry retrycount="12" retrydelay="15000">
@@ -877,14 +980,14 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
               <execution>
                 <id>verify-war-file-fingerprint</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
+                  <skip>${running-war-file.matches}</skip>
                   <target>
-                    <!-- Compute the expected MD5 fingerprint -->
-                    <checksum file="${project.build.directory}/${project.build.finalName}.war" property="expected-war-file-fingerprint"/>
+                    <echo level="debug" message="build-war-file-fingerprint = ${build-war-file-fingerprint}" />
                     <!-- Download and verify matches -->
                     <mkdir dir="${project.build.directory}/verify-war-file-fingerprint" />
                     <retry retrycount="12" retrydelay="15000">
                       <sequential>
-                        <local name="war-file-fingerprint" />
+                        <local name="published-war-file-fingerprint" />
                         <get
                           retries="1"
                           username="${tomcatManagerUsername}"
@@ -894,13 +997,15 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                           maxtime="120"
                           httpusecaches="false"
                         />
-                        <loadfile property="war-file-fingerprint" srcFile="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint" />
-                        <condition property="war-file-fingerprint.matches">
-                          <equals arg1="${war-file-fingerprint}" arg2="${expected-war-file-fingerprint}" />
+                        <loadfile property="published-war-file-fingerprint" srcFile="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint" />
+                        <condition property="published-war-file-fingerprint.matches">
+                          <equals arg1="${published-war-file-fingerprint}" arg2="${build-war-file-fingerprint}" />
                         </condition>
+                        <echo level="debug" message="published-war-file-fingerprint = ${published-war-file-fingerprint}" />
+                        <echo level="debug" message="published-war-file-fingerprint.matches = ${published-war-file-fingerprint.matches}" />
                         <fail
-                          message="WAR file MD5 fingerprint mismatch.  Expected ${expected-war-file-fingerprint}, got ${war-file-fingerprint}."
-                          unless="war-file-fingerprint.matches"
+                          message="WAR file MD5 fingerprint mismatch.  Expected ${build-war-file-fingerprint}, got ${published-war-file-fingerprint}."
+                          unless="published-war-file-fingerprint.matches"
                         />
                       </sequential>
                     </retry>
@@ -943,6 +1048,11 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 </configuration>
               </execution>
             </executions>
+            <dependencies>
+              <dependency>
+                <groupId>org.codehaus.groovy</groupId><artifactId>groovy-ant</artifactId><version>${org.codehaus.groovy.groovy-ant.version}</version>
+              </dependency>
+            </dependencies>
           </plugin>
         </plugins>
       </build>
