@@ -627,7 +627,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
               <execution>
                 <id>publish.tomcat7-maven-plugin.conditional-deploy-only</id><phase>deploy</phase><goals><goal>exec</goal></goals>
                 <configuration>
-                  <skip>${running-war-file.matches}</skip>
+                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
                   <executable>mvn</executable>
                   <!-- -B made colors not work -->
                   <commandlineArgs>
@@ -907,17 +907,17 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                     <property name="publish.tomcat7-maven-plugin.running-war-file-fingerprint" value="UNKNOWN" />
                     <echo level="debug" message="publish.tomcat7-maven-plugin.running-war-file-fingerprint = ${publish.tomcat7-maven-plugin.running-war-file-fingerprint}" />
                     <!-- Set as property to true/false based on if this matches the expected fingerprint -->
-                    <condition property="running-war-file.matches" value="true" else="false">
+                    <condition property="publish.tomcat7-maven-plugin.running-war-file.matches" value="true" else="false">
                       <equals arg1="${publish.tomcat7-maven-plugin.running-war-file-fingerprint}" arg2="${publish.tomcat7-maven-plugin.build-war-file-fingerprint}" />
                     </condition>
-                    <echo level="debug" message="running-war-file.matches = ${running-war-file.matches}" />
-                    <echo level="info" if:true="${running-war-file.matches}" message="Tomcat deployment will be skipped because new build matches running fingerprint: ${publish.tomcat7-maven-plugin.running-war-file-fingerprint}" />
-                    <echo level="info" unless:true="${running-war-file.matches}" message="Tomcat deployment will proceed because new build does not match running fingerprint: build = ${publish.tomcat7-maven-plugin.build-war-file-fingerprint}, running = ${publish.tomcat7-maven-plugin.running-war-file-fingerprint}" />
+                    <echo level="debug" message="publish.tomcat7-maven-plugin.running-war-file.matches = ${publish.tomcat7-maven-plugin.running-war-file.matches}" />
+                    <echo level="info" if:true="${publish.tomcat7-maven-plugin.running-war-file.matches}" message="Tomcat deployment will be skipped because new build matches running fingerprint: ${publish.tomcat7-maven-plugin.running-war-file-fingerprint}" />
+                    <echo level="info" unless:true="${publish.tomcat7-maven-plugin.running-war-file.matches}" message="Tomcat deployment will proceed because new build does not match running fingerprint: build = ${publish.tomcat7-maven-plugin.build-war-file-fingerprint}, running = ${publish.tomcat7-maven-plugin.running-war-file-fingerprint}" />
                     <!-- Save properties for Maven to read -->
                     <echo file="${project.build.directory}/publish.tomcat7-maven-plugin/existing-war-file-fingerprints.properties"><!--
                       -->publish.tomcat7-maven-plugin.build-war-file-fingerprint=${publish.tomcat7-maven-plugin.build-war-file-fingerprint}${line.separator}<!--
                       -->publish.tomcat7-maven-plugin.running-war-file-fingerprint=${publish.tomcat7-maven-plugin.running-war-file-fingerprint}${line.separator}<!--
-                      -->running-war-file.matches=${running-war-file.matches}${line.separator}<!--
+                      -->publish.tomcat7-maven-plugin.running-war-file.matches=${publish.tomcat7-maven-plugin.running-war-file.matches}${line.separator}<!--
                     --></echo>
                   </target>
                 </configuration>
@@ -925,7 +925,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
               <execution>
                 <id>warmup-sleep</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
-                  <skip>${running-war-file.matches}</skip>
+                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
                   <target>
                     <sleep seconds="10" />
                   </target>
@@ -934,7 +934,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
               <execution>
                 <id>verify-parallel-deployment-version</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
-                  <skip>${running-war-file.matches}</skip>
+                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
                   <target>
                     <mkdir dir="${project.build.directory}/verify-parallel-deployment-version" />
                     <retry retrycount="12" retrydelay="15000">
@@ -965,7 +965,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
               <execution>
                 <id>verify-war-file-fingerprint</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
-                  <skip>${running-war-file.matches}</skip>
+                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
                   <target>
                     <echo level="debug" message="publish.tomcat7-maven-plugin.build-war-file-fingerprint = ${publish.tomcat7-maven-plugin.build-war-file-fingerprint}" />
                     <!-- Download and verify matches -->
