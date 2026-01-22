@@ -679,6 +679,8 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                       def mavenProject = project.references['maven.project']
                       assert mavenProject != null
 
+                      def newline = System.lineSeparator()
+
                       def out = new File("${project.build.directory}/publish.tomcat7-maven-plugin/capture-maven-context.properties")
                       out.text = '' // overwrite
 
@@ -697,7 +699,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                       // Maintain debug flag
                       def needSpace = false
                       if (Boolean.getBoolean(System.getProperty("maven.debug"))) {
-                        out << "-X\n"
+                        out << "-X" + newline
                         needSpace = true
                       }
                       whitelist.each { name ->
@@ -713,11 +715,11 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                           needSpace = true
                         }
                       }
-                      out << "\n"
+                      out << newline
 
                       // Active profiles
                       def profiles = mavenProject.activeProfiles*.id
-                      out << "publish.tomcat7-maven-plugin.capture-maven-context.activeProfiles=" + profiles.join(",") + "\n"
+                      out << "publish.tomcat7-maven-plugin.capture-maven-context.activeProfiles=" + profiles.join(",") + newline
                     ]]></groovy>
                   </target>
                 </configuration>
