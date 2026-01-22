@@ -667,64 +667,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
             <executions>
               <execution>
-                <id>publish.tomcat7-maven-plugin.capture-maven-context</id><phase>initialize</phase><goals><goal>run</goal></goals>
-                <configuration>
-                  <target>
-                    <!-- Load Groovy support -->
-                    <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy"/>
-
-                    <!-- Groovy block to iterate all user-defined properties -->
-                    <mkdir dir="${project.build.directory}/publish.tomcat7-maven-plugin" />
-                    <groovy><![CDATA[
-                      def mavenProject = project.references['maven.project']
-                      assert mavenProject != null
-
-                      def newline = System.lineSeparator()
-
-                      def out = new File("${project.build.directory}/publish.tomcat7-maven-plugin/capture-maven-context.properties")
-                      out.text = '' // overwrite
-
-                      // Explicit whitelist of user properties to forward
-                      def whitelist = [
-                        // Used in parallel deployment version
-                        'current.datetime',    
-                        'jenkins.buildNumber',
-                        // Seen in Jenkins builds
-                        'style.color',
-                        // 'maven.ext.class.path',
-                        // 'org.jenkinsci.plugins.pipeline.maven.reportsFolder',
-                      ]
-
-                      out << "publish.tomcat7-maven-plugin.capture-maven-context.additionalArguments="
-                      // Maintain debug flag
-                      def needSpace = false
-                      if (Boolean.getBoolean(System.getProperty("maven.debug"))) {
-                        out << "-X" + newline
-                        needSpace = true
-                      }
-                      whitelist.each { name ->
-                        if (mavenProject.properties.containsKey(name)) {
-                          def value = mavenProject.properties[name]
-                          if (needSpace) {
-                            out << " "
-                          }
-                          out << "-D" + name;
-                          if (value != null && !value.toString().isEmpty()) {
-                            out << "=" + value
-                          }
-                          needSpace = true
-                        }
-                      }
-                      out << newline
-
-                      // Active profiles
-                      def profiles = mavenProject.activeProfiles*.id
-                      out << "publish.tomcat7-maven-plugin.capture-maven-context.activeProfiles=" + profiles.join(",") + newline
-                    ]]></groovy>
-                  </target>
-                </configuration>
-              </execution>
-              <execution>
                 <id>create-javadoc-webresources</id><phase>generate-resources</phase><goals><goal>run</goal></goals>
                 <configuration>
                   <target xmlns:if="ant:if">
@@ -999,11 +941,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 </configuration>
               </execution>
             </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.codehaus.groovy</groupId><artifactId>groovy-ant</artifactId><version>${org.codehaus.groovy.groovy-ant.version}</version>
-              </dependency>
-            </dependencies>
           </plugin>
         </plugins>
       </build>
