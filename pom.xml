@@ -59,10 +59,9 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <publish.tomcat7-maven-plugin.url>${tomcat7-maven-plugin-oss.aoapps.com}</publish.tomcat7-maven-plugin.url>
     <publish.tomcat7-maven-plugin.GetWarFileFingerprint-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish.tomcat7-maven-plugin.GetWarFileFingerprint-url>
     <publish.tomcat7-maven-plugin.GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish.tomcat7-maven-plugin.GetParallelDeploymentVersion-url>
-
-    <publish-oss.aoapps.com-warmup-get-url>https://oss.aoapps.com/</publish-oss.aoapps.com-warmup-get-url>
-    <publish-oss.aoapps.com-warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish-oss.aoapps.com-warmup-get-url.2>
-    <publish-oss.aoapps.com-warmup-get-url.3>https://oss.aoapps.com/?view=news</publish-oss.aoapps.com-warmup-get-url.3>
+    <publish.tomcat7-maven-plugin.warmup-get-url.1>https://oss.aoapps.com/</publish.tomcat7-maven-plugin.warmup-get-url.1>
+    <publish.tomcat7-maven-plugin.warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish.tomcat7-maven-plugin.warmup-get-url.2>
+    <publish.tomcat7-maven-plugin.warmup-get-url.3>https://oss.aoapps.com/?view=news</publish.tomcat7-maven-plugin.warmup-get-url.3>
   </properties>
 
   <name>oss.aoapps.com</name>
@@ -993,41 +992,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                           unless="publish.tomcat7-maven-plugin.published-war-file-fingerprint.matches"
                         />
                       </sequential>
-                    </retry>
-                  </target>
-                </configuration>
-              </execution>
-              <execution>
-                <id>warmup-get-url</id><phase>deploy</phase><goals><goal>run</goal></goals>
-                <configuration>
-                  <target>
-                    <mkdir dir="${project.build.directory}/warmup-get-url" />
-                    <retry retrycount="12" retrydelay="15000">
-                      <get
-                        retries="1"
-                        src="${publish-oss.aoapps.com-warmup-get-url}"
-                        dest="${project.build.directory}/warmup-get-url/response"
-                        maxtime="120"
-                        httpusecaches="false"
-                      />
-                    </retry>
-                    <retry retrycount="12" retrydelay="15000">
-                      <get
-                        retries="1"
-                        src="${publish-oss.aoapps.com-warmup-get-url.2}"
-                        dest="${project.build.directory}/warmup-get-url/response.2"
-                        maxtime="120"
-                        httpusecaches="false"
-                      />
-                    </retry>
-                    <retry retrycount="12" retrydelay="15000">
-                      <get
-                        retries="1"
-                        src="${publish-oss.aoapps.com-warmup-get-url.3}"
-                        dest="${project.build.directory}/warmup-get-url/response.3"
-                        maxtime="120"
-                        httpusecaches="false"
-                      />
                     </retry>
                   </target>
                 </configuration>
