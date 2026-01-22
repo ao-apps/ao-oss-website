@@ -648,22 +648,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.codehaus.mojo</groupId><artifactId>properties-maven-plugin</artifactId>
-            <executions>
-              <!-- Reads the properties created by publish.tomcat7-maven-plugin.capture-maven-context and publish.tomcat7-maven-plugin.existing-war-file-fingerprints below. -->
-              <execution>
-                <!-- install phase to be just after publish.tomcat7-maven-plugin.existing-war-file-fingerprints and just before deploy -->
-                <id>publish.tomcat7-maven-plugin.read-project-properties</id><phase>install</phase><goals><goal>read-project-properties</goal></goals>
-                <configuration>
-                  <files>
-                    <file>${project.build.directory}/publish.tomcat7-maven-plugin/capture-maven-context.properties</file>
-                    <file>${project.build.directory}/publish.tomcat7-maven-plugin/existing-war-file-fingerprints.properties</file>
-                  </files>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
             <executions>
               <execution>
