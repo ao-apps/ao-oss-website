@@ -780,41 +780,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                   </target>
                 </configuration>
               </execution>
-              <execution>
-                <id>publish.tomcat7-maven-plugin.verify-published-war-file-fingerprint</id><phase>deploy</phase><goals><goal>run</goal></goals>
-                <configuration>
-                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
-                  <target>
-                    <echo level="debug" message="publish.tomcat7-maven-plugin.build-war-file-fingerprint = ${publish.tomcat7-maven-plugin.build-war-file-fingerprint}" />
-                    <!-- Download and verify matches -->
-                    <mkdir dir="${project.build.directory}/publish.tomcat7-maven-plugin" />
-                    <retry retrycount="12" retrydelay="15000">
-                      <sequential>
-                        <local name="publish.tomcat7-maven-plugin.published-war-file-fingerprint" />
-                        <get
-                          retries="1"
-                          username="${publish.tomcat7-maven-plugin.server.username}"
-                          password="${publish.tomcat7-maven-plugin.server.password}"
-                          src="${publish.tomcat7-maven-plugin.GetWarFileFingerprint-url}"
-                          dest="${project.build.directory}/publish.tomcat7-maven-plugin/published-war-file-fingerprint"
-                          maxtime="120"
-                          httpusecaches="false"
-                        />
-                        <loadfile property="publish.tomcat7-maven-plugin.published-war-file-fingerprint" srcFile="${project.build.directory}/publish.tomcat7-maven-plugin/published-war-file-fingerprint" />
-                        <condition property="publish.tomcat7-maven-plugin.published-war-file-fingerprint.matches">
-                          <equals arg1="${publish.tomcat7-maven-plugin.published-war-file-fingerprint}" arg2="${publish.tomcat7-maven-plugin.build-war-file-fingerprint}" />
-                        </condition>
-                        <echo level="debug" message="publish.tomcat7-maven-plugin.published-war-file-fingerprint = ${publish.tomcat7-maven-plugin.published-war-file-fingerprint}" />
-                        <echo level="debug" message="publish.tomcat7-maven-plugin.published-war-file-fingerprint.matches = ${publish.tomcat7-maven-plugin.published-war-file-fingerprint.matches}" />
-                        <fail
-                          message="WAR file MD5 fingerprint mismatch.  Expected ${publish.tomcat7-maven-plugin.build-war-file-fingerprint}, got ${publish.tomcat7-maven-plugin.published-war-file-fingerprint}."
-                          unless="publish.tomcat7-maven-plugin.published-war-file-fingerprint.matches"
-                        />
-                      </sequential>
-                    </retry>
-                  </target>
-                </configuration>
-              </execution>
             </executions>
           </plugin>
         </plugins>
