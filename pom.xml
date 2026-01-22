@@ -58,8 +58,8 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <publish.tomcat7-maven-plugin.path>/ROOT</publish.tomcat7-maven-plugin.path>
     <publish.tomcat7-maven-plugin.url>${tomcat7-maven-plugin-oss.aoapps.com}</publish.tomcat7-maven-plugin.url>
     <publish.tomcat7-maven-plugin.GetWarFileFingerprint-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish.tomcat7-maven-plugin.GetWarFileFingerprint-url>
+    <publish.tomcat7-maven-plugin.GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish.tomcat7-maven-plugin.GetParallelDeploymentVersion-url>
 
-    <publish-oss.aoapps.com-GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish-oss.aoapps.com-GetParallelDeploymentVersion-url>
     <publish-oss.aoapps.com-warmup-get-url>https://oss.aoapps.com/</publish-oss.aoapps.com-warmup-get-url>
     <publish-oss.aoapps.com-warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish-oss.aoapps.com-warmup-get-url.2>
     <publish-oss.aoapps.com-warmup-get-url.3>https://oss.aoapps.com/?view=news</publish-oss.aoapps.com-warmup-get-url.3>
@@ -944,7 +944,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                           retries="1"
                           username="${publish.tomcat7-maven-plugin.server.username}"
                           password="${publish.tomcat7-maven-plugin.server.password}"
-                          src="${publish-oss.aoapps.com-GetParallelDeploymentVersion-url}"
+                          src="${publish.tomcat7-maven-plugin.GetParallelDeploymentVersion-url}"
                           dest="${project.build.directory}/publish.tomcat7-maven-plugin/verify-parallel.deployment.version"
                           maxtime="120"
                           httpusecaches="false"
