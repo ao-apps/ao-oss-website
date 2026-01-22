@@ -621,33 +621,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
             </configuration>
           </plugin>
           <plugin>
-            <groupId>org.codehaus.mojo</groupId><artifactId>exec-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>publish.tomcat7-maven-plugin.conditional-deploy-only</id><phase>deploy</phase><goals><goal>exec</goal></goals>
-                <configuration>
-                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
-                  <executable>mvn</executable>
-                  <!-- -B made colors not work -->
-                  <commandlineArgs>
-                    --quiet
-                    -N
-                    -P${publish.tomcat7-maven-plugin.capture-maven-context.activeProfiles}
-                    ${publish.tomcat7-maven-plugin.capture-maven-context.additionalArguments}
-                    tomcat7:deploy-only@publish.tomcat7-maven-plugin.deploy-only
-                  </commandlineArgs>
-                  <environmentVariables>
-                    <JAVA_HOME>${env.JAVA_HOME}</JAVA_HOME>
-                    <MAVEN_OPTS>${env.MAVEN_OPTS}</MAVEN_OPTS>
-                    <!-- Seen in Jenkins builds -->
-                    <!-- TODO: Review set -e inside Jenkinsfile for if any more that we should include -->
-                    <!-- <JAVA_TOOL_OPTIONS>${env.JAVA_TOOL_OPTIONS}</JAVA_TOOL_OPTIONS> -->
-                  </environmentVariables>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
             <executions>
               <execution>
