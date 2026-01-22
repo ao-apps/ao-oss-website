@@ -781,15 +781,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                 </configuration>
               </execution>
               <execution>
-                <id>publish.tomcat7-maven-plugin.warmup-sleep</id><phase>deploy</phase><goals><goal>run</goal></goals>
-                <configuration>
-                  <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
-                  <target>
-                    <sleep seconds="10" />
-                  </target>
-                </configuration>
-              </execution>
-              <execution>
                 <id>publish.tomcat7-maven-plugin.parallel.deployment.version.verify</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>
                   <skip>${publish.tomcat7-maven-plugin.running-war-file.matches}</skip>
