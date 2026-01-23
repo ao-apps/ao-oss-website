@@ -54,15 +54,15 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Require secure session cookies in production -->
     <session.cookie.secure>true</session.cookie.secure>
     <!-- Default publish settings -->
-    <publish.tomcat7-maven-plugin.2.server>tomcat7-maven-plugin-oss.aoapps.com</publish.tomcat7-maven-plugin.2.server>
-    <publish.tomcat7-maven-plugin.2.url>${tomcat7-maven-plugin-oss.aoapps.com}</publish.tomcat7-maven-plugin.2.url>
-    <publish.tomcat7-maven-plugin.2.GetWarFileFingerprint-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish.tomcat7-maven-plugin.2.GetWarFileFingerprint-url>
-    <publish.tomcat7-maven-plugin.2.warmup-get-url.1>https://oss.aoapps.com/</publish.tomcat7-maven-plugin.2.warmup-get-url.1>
-    <publish.tomcat7-maven-plugin.2.warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish.tomcat7-maven-plugin.2.warmup-get-url.2>
-    <publish.tomcat7-maven-plugin.2.warmup-get-url.3>https://oss.aoapps.com/?view=news</publish.tomcat7-maven-plugin.2.warmup-get-url.3>
+    <publish.tomcat7-maven-plugin.1.server>tomcat7-maven-plugin-oss.aoapps.com</publish.tomcat7-maven-plugin.1.server>
+    <publish.tomcat7-maven-plugin.1.url>${tomcat7-maven-plugin-oss.aoapps.com}</publish.tomcat7-maven-plugin.1.url>
+    <publish.tomcat7-maven-plugin.1.GetWarFileFingerprint-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish.tomcat7-maven-plugin.1.GetWarFileFingerprint-url>
+    <publish.tomcat7-maven-plugin.1.warmup-get-url.1>https://oss.aoapps.com/</publish.tomcat7-maven-plugin.1.warmup-get-url.1>
+    <publish.tomcat7-maven-plugin.1.warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish.tomcat7-maven-plugin.1.warmup-get-url.2>
+    <publish.tomcat7-maven-plugin.1.warmup-get-url.3>https://oss.aoapps.com/?view=news</publish.tomcat7-maven-plugin.1.warmup-get-url.3>
     <!-- Parallel Deployment -->
-    <publish.tomcat7-maven-plugin.2.path>/ROOT</publish.tomcat7-maven-plugin.2.path>
-    <publish.tomcat7-maven-plugin.2.GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish.tomcat7-maven-plugin.2.GetParallelDeploymentVersion-url>
+    <publish.tomcat7-maven-plugin.1.path>/ROOT</publish.tomcat7-maven-plugin.1.path>
+    <publish.tomcat7-maven-plugin.1.GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish.tomcat7-maven-plugin.1.GetParallelDeploymentVersion-url>
   </properties>
 
   <name>oss.aoapps.com</name>
