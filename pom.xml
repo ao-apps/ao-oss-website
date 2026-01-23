@@ -60,9 +60,14 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     <publish.tomcat7-maven-plugin.2.warmup-get-url.1>https://oss.aoapps.com/</publish.tomcat7-maven-plugin.2.warmup-get-url.1>
     <publish.tomcat7-maven-plugin.2.warmup-get-url.2>https://oss.aoapps.com/sitemap-index.xml</publish.tomcat7-maven-plugin.2.warmup-get-url.2>
     <publish.tomcat7-maven-plugin.2.warmup-get-url.3>https://oss.aoapps.com/?view=news</publish.tomcat7-maven-plugin.2.warmup-get-url.3>
-    <!-- Parallel Deployment -->
-    <publish.tomcat7-maven-plugin.2.path>/ROOT</publish.tomcat7-maven-plugin.2.path>
-    <publish.tomcat7-maven-plugin.2.GetParallelDeploymentVersion-url>https://oss.aoapps.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish.tomcat7-maven-plugin.2.GetParallelDeploymentVersion-url>
+    <!-- Non-Parallel Deployment -->
+    <!-- TODO: Parallel Deployment -->
+    <publish.tomcat7-maven-plugin.2.path>/</publish.tomcat7-maven-plugin.2.path>
+    <publish.tomcat7-maven-plugin.2.ssh-path>/usr/bin/ssh</publish.tomcat7-maven-plugin.2.ssh-path>
+    <publish.tomcat7-maven-plugin.2.tomcat-username>aooss</publish.tomcat7-maven-plugin.2.tomcat-username>
+    <publish.tomcat7-maven-plugin.2.tomcat-hostname>ao1.kc.aoindustries.com</publish.tomcat7-maven-plugin.2.tomcat-hostname>
+    <publish.tomcat7-maven-plugin.2.tomcat-path>/var/www/oss.aoapps.com/bin/tomcat</publish.tomcat7-maven-plugin.2.tomcat-path>
+    <publish.tomcat7-maven-plugin.2.tomcat-work>/var/www/oss.aoapps.com/work/Catalina/localhost/ROOT</publish.tomcat7-maven-plugin.2.tomcat-work>
   </properties>
 
   <name>oss.aoapps.com</name>
