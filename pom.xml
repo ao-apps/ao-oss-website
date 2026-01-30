@@ -25,7 +25,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.25.0-POST-SNAPSHOT</version>
+    <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><version>1.25.1-SNAPSHOT</version>
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
 
@@ -1387,7 +1387,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId><version>1.0.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId><version>1.25.0-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>ao-oss-parent-book</artifactId><version>1.25.1-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-payments-all-book</artifactId><version>3.0.1-POST-SNAPSHOT</version>
@@ -1526,7 +1526,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId><version>10.0.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.14.0-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.14.1-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
