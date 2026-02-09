@@ -1523,7 +1523,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId><version>10.0.0-POST-SNAPSHOT</version>
+        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom-book</artifactId><version>10.0.1-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>pgp-keys-map-book</artifactId><version>1.14.1-POST-SNAPSHOT</version>
@@ -1738,7 +1738,7 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       </dependency>
       <!-- Imports -->
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom</artifactId><version>10.0.0${POST-SNAPSHOT}</version>
+        <groupId>com.aoapps</groupId><artifactId>jakartaee-web-profile-bom</artifactId><version>10.0.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
