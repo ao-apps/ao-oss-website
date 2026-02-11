@@ -74,9 +74,6 @@ module com.aoapps.oss.website {
   requires com.aoapps.messaging.tcp.client.book; // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId>
   requires com.aoapps.messaging.tcp.server.book; // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId>
   requires com.aoapps.mime.mappings.book; // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
-  requires com.aoapps.net.partialurl.book; // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
-  requires com.aoapps.net.partialurl.servlet.book; // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
-  requires com.aoapps.net.pathspace.book; // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
   requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
   requires com.aoapps.net.types.book; // <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
   requires com.aoapps.oss.book; // <groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId>
@@ -93,15 +90,6 @@ module com.aoapps.oss.website {
   requires com.aoapps.persistence.book; // <groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId>
   requires com.aoapps.security.book; // <groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId>
   requires com.aoapps.servlet.filter.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
-  requires com.aoapps.servlet.firewall.api.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
-  requires com.aoapps.servlet.firewall.bom.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
-  requires com.aoapps.servlet.firewall.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId>
-  requires com.aoapps.servlet.firewall.filter.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId>
-  requires com.aoapps.servlet.firewall.pathspace.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId>
-  requires com.aoapps.servlet.firewall.rules.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId>
-  requires com.aoapps.servlet.firewall.virtualhosts.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId>
-  requires com.aoapps.servlet.firewall.virtualhosts.pathspace.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId>
-  requires com.aoapps.servlet.firewall.webjars.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
   requires com.aoapps.servlet.lastmodified.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>
   requires com.aoapps.servlet.subrequest.book; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
   requires com.aoapps.servlet.util; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>

@@ -430,18 +430,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                     </dependency>
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier> -->
                     <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-net-partial-url-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-net-partial-url-servlet-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-net-path-space-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
                       <destFileName>ao-net-types-javadoc.jar</destFileName>
                     </dependency>
@@ -485,36 +473,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><classifier>javadoc</classifier>
                       <destFileName>ao-servlet-filter-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-api-javadoc.jar</destFileName>
-                    </dependency>
-                    <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId><classifier>javadoc</classifier> -->
-                    <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId><classifier>javadoc</classifier> -->
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-filter-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-path-space-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-rules-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-virtual-hosts-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-virtual-hosts-path-space-javadoc.jar</destFileName>
-                    </dependency>
-                    <dependency>
-                      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><classifier>javadoc</classifier>
-                      <destFileName>ao-servlet-firewall-webjars-javadoc.jar</destFileName>
                     </dependency>
                     <dependency>
                       <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><classifier>javadoc</classifier>
@@ -728,9 +686,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-messaging-tcp-client" path="/messaging/tcp/client" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-messaging-tcp-server" path="/messaging/tcp/server" />
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier> -->
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-net-partial-url" path="/net-partial-url" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-net-partial-url-servlet" path="/net-partial-url/servlet" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-net-path-space" path="/net-path-space" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-net-types" path="/net-types" />
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss</artifactId><classifier>javadoc</classifier> -->
                     <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><classifier>javadoc</classifier> -->
@@ -746,15 +701,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-persistence" path="/persistence" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-security" path="/security" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-filter" path="/servlet-filter" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-api" path="/servlet-firewall/api" />
-                    <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId><classifier>javadoc</classifier> -->
-                    <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId><classifier>javadoc</classifier> -->
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-filter" path="/servlet-firewall/filter" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-path-space" path="/servlet-firewall/path-space" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-rules" path="/servlet-firewall/rules" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-virtual-hosts" path="/servlet-firewall/virtual-hosts" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-virtual-hosts-path-space" path="/servlet-firewall/virtual-hosts/path-space" />
-                    <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-firewall-webjars" path="/servlet-firewall/webjars" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-last-modified" path="/servlet-last-modified" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-subrequest" path="/servlet-subrequest" />
                     <create-javadoc-webresource groupId="com.aoapps" artifactId="ao-servlet-util" path="/servlet-util" />
@@ -996,21 +942,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         </dependency>
         <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier> -->
         <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><version>0.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><version>0.2.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><version>0.1.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
           <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>3.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
@@ -1062,43 +993,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         </dependency>
         <dependency>
           <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>4.0.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId><classifier>javadoc</classifier> -->
-        <!-- No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId><classifier>javadoc</classifier> -->
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
-          <scope>provided</scope>
-          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-        </dependency>
-        <dependency>
-          <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>0.4.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -1369,15 +1263,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId><version>2.0.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId><version>0.2.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId><version>0.2.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId><version>0.1.0-POST-SNAPSHOT</version>
-      </dependency>
-      <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
       </dependency>
       <dependency>
@@ -1424,33 +1309,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId><version>4.0.0-POST-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId><version>0.4.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId><version>0.4.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId><version>4.0.0-POST-SNAPSHOT</version>
@@ -1904,15 +1762,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
       <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
     </dependency>
     <dependency>
@@ -1959,33 +1808,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>

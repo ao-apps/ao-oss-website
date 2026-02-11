@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ao-oss-website - The oss.aoapps.com website.
-Copyright (C) 2021, 2022, 2023, 2025  AO Industries, Inc.
+Copyright (C) 2021, 2022, 2023, 2025, 2026  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -192,15 +192,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   <book name="/mime-mappings" cvsworkDirectory="~/maven2/ao/oss/mime-mappings/book/src/main/resources-filtered/META-INF/resources/mime-mappings">
     <parent book="/" page="/web-development.jspx" />
   </book>
-  <book name="/net-partial-url" cvsworkDirectory="~/maven2/ao/oss/net-partial-url/book/src/main/resources-filtered/META-INF/resources/net-partial-url">
-    <parent book="/" page="/web-development.jspx" />
-  </book>
-  <book name="/net-partial-url/servlet" cvsworkDirectory="~/maven2/ao/oss/net-partial-url-servlet/book/src/main/resources-filtered/META-INF/resources/net-partial-url/servlet">
-    <parent book="/net-partial-url" page="/index.jspx" shortTitle="Servlet" />
-  </book>
-  <book name="/net-path-space" cvsworkDirectory="~/maven2/ao/oss/net-path-space/book/src/main/resources-filtered/META-INF/resources/net-path-space">
-    <parent book="/" page="/web-development.jspx" />
-  </book>
   <book name="/net-types" cvsworkDirectory="~/maven2/ao/oss/net-types/book/src/main/resources-filtered/META-INF/resources/net-types">
     <parent book="/" page="/java-libraries.jspx" />
   </book>
@@ -245,33 +236,6 @@ along with ao-oss-website.  If not, see <https://www.gnu.org/licenses/>.
   </book>
   <book name="/servlet-filter" cvsworkDirectory="~/maven2/ao/oss/servlet-filter/book/src/main/resources-filtered/META-INF/resources/servlet-filter">
     <parent book="/" page="/web-development.jspx" />
-  </book>
-  <book name="/servlet-firewall" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/book/src/main/resources-filtered/META-INF/resources/servlet-firewall">
-    <parent book="/" page="/web-development.jspx" />
-  </book>
-  <book name="/servlet-firewall/api" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/api/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/api">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="API" />
-  </book>
-  <book name="/servlet-firewall/bom" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/bom/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/bom">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="BOM" />
-  </book>
-  <book name="/servlet-firewall/filter" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/filter/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/filter">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Filter" />
-  </book>
-  <book name="/servlet-firewall/path-space" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/path-space/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/path-space">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Path Space" />
-  </book>
-  <book name="/servlet-firewall/rules" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/rules/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/rules">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Rules" />
-  </book>
-  <book name="/servlet-firewall/virtual-hosts" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/virtual-hosts/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/virtual-hosts">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="Virtual Hosts" />
-  </book>
-  <book name="/servlet-firewall/virtual-hosts/path-space" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/virtual-hosts-path-space/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/virtual-hosts/path-space">
-    <parent book="/servlet-firewall/virtual-hosts" page="/index.jspx" shortTitle="Path Space" />
-  </book>
-  <book name="/servlet-firewall/webjars" cvsworkDirectory="~/maven2/ao/oss/servlet-firewall/webjars/book/src/main/resources-filtered/META-INF/resources/servlet-firewall/webjars">
-    <parent book="/servlet-firewall" page="/index.jspx" shortTitle="WebJars" />
   </book>
   <book name="/servlet-last-modified" cvsworkDirectory="~/maven2/ao/oss/servlet-last-modified/book/src/main/resources-filtered/META-INF/resources/servlet-last-modified">
     <parent book="/" page="/web-development.jspx" />

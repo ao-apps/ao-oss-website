@@ -94,9 +94,6 @@ binding.setVariable('upstreamProjects', [
   'messaging/tcp-client', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client</artifactId><classifier>javadoc</classifier>
   'messaging/tcp-server', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><classifier>javadoc</classifier>
-  'net-partial-url', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url</artifactId><classifier>javadoc</classifier>
-  'net-partial-url-servlet', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet</artifactId><classifier>javadoc</classifier>
-  'net-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId><classifier>javadoc</classifier>
   'net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss</artifactId><classifier>javadoc</classifier>
   // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-oss-parent</artifactId><classifier>javadoc</classifier>
@@ -112,15 +109,6 @@ binding.setVariable('upstreamProjects', [
   'persistence', // <groupId>com.aoapps</groupId><artifactId>ao-persistence</artifactId><classifier>javadoc</classifier>
   'security', // <groupId>com.aoapps</groupId><artifactId>ao-security</artifactId><classifier>javadoc</classifier>
   'servlet-filter', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/api', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId><classifier>javadoc</classifier>
-  // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom</artifactId><classifier>javadoc</classifier>
-  // No apidocs: <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/filter', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/rules', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/virtual-hosts', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/virtual-hosts-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space</artifactId><classifier>javadoc</classifier>
-  'servlet-firewall/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><classifier>javadoc</classifier>
   'servlet-last-modified', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><classifier>javadoc</classifier>
   'servlet-subrequest', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><classifier>javadoc</classifier>
   'servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
@@ -198,9 +186,6 @@ binding.setVariable('upstreamProjects', [
   'messaging/tcp-client-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-client-book</artifactId>
   'messaging/tcp-server-book', // <groupId>com.aoapps</groupId><artifactId>ao-messaging-tcp-server-book</artifactId>
   'mime-mappings-book', // <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings-book</artifactId>
-  'net-partial-url-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-book</artifactId>
-  'net-partial-url-servlet-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-partial-url-servlet-book</artifactId>
-  'net-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space-book</artifactId>
   'net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
   'net-types-book', // <groupId>com.aoapps</groupId><artifactId>ao-net-types-book</artifactId>
   'book', // <groupId>com.aoapps</groupId><artifactId>ao-oss-book</artifactId>
@@ -217,15 +202,6 @@ binding.setVariable('upstreamProjects', [
   'persistence-book', // <groupId>com.aoapps</groupId><artifactId>ao-persistence-book</artifactId>
   'security-book', // <groupId>com.aoapps</groupId><artifactId>ao-security-book</artifactId>
   'servlet-filter-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter-book</artifactId>
-  'servlet-firewall/api-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api-book</artifactId>
-  'servlet-firewall/bom-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-bom-book</artifactId>
-  'servlet-firewall/book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-book</artifactId>
-  'servlet-firewall/filter-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-filter-book</artifactId>
-  'servlet-firewall/path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space-book</artifactId>
-  'servlet-firewall/rules-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules-book</artifactId>
-  'servlet-firewall/virtual-hosts-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-book</artifactId>
-  'servlet-firewall/virtual-hosts-path-space-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-virtual-hosts-path-space-book</artifactId>
-  'servlet-firewall/webjars-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars-book</artifactId>
   'servlet-last-modified-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified-book</artifactId>
   'servlet-subrequest-book', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest-book</artifactId>
   'servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
