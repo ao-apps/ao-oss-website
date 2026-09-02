@@ -75,7 +75,7 @@ public class CompatibilityRedirect implements Filter {
     final Map<String, String> prefix = new LinkedHashMap<>(); // Ordering matters for this one
 
     // 2025-11-22: /javaee-web-api-bom moved to /jakartaee-web-profile-bom
-    exactx.put("/javaee-web-api-bom",  "/jakartaee-web-profile-bom");
+    exactx.put("/javaee-web-api-bom", "/jakartaee-web-profile-bom");
     prefix.put("/javaee-web-api-bom/", "/jakartaee-web-profile-bom/*");
 
     // Store now that all initialized
